@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
         {LinkDirection.BOTRIGHT, 120},
         {LinkDirection.BOT, 180},
         {LinkDirection.BOTLEFT, 240},
-         {LinkDirection.TOPLEFT, 240},
+        {LinkDirection.TOPLEFT, 300},
     };
 
     //Start is called once before the first frame
