@@ -15,6 +15,7 @@ public class MoveToIsle : MonoBehaviour
 
     private bool InMove;
 
+
     public void GetPath()
     {
         List<Transform> Path = GameObject.Find("GameManager").GetComponent<GameManager>()._mostAccuratePath;
@@ -24,7 +25,7 @@ public class MoveToIsle : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < Path.Count; i++)
+        for (int i = Path.Count - 1; i >= 0; --i)
         {
             tilesPosition.Add(Path[i].position);
         }
@@ -40,7 +41,9 @@ public class MoveToIsle : MonoBehaviour
 
             GetComponent<Player>().lookDirection = LoopThroughKeyValuePairs(angle + 180);
 
-            if (transform.position.x == tilesPosition[0].x && transform.position.y == tilesPosition[0].y)
+            Vector3 tilePositionNoY = new Vector3(tilesPosition[0].x, transform.position.y, tilesPosition[0].z);
+
+            if (Vector3.Distance(transform.position, tilePositionNoY) <= 0.005f)
                 tilesPosition.RemoveAt(0);
 
             if (tilesPosition.Count == 0)
@@ -49,10 +52,8 @@ public class MoveToIsle : MonoBehaviour
                 return;
             }
 
-            Vector3 newPos = Vector3.MoveTowards(transform.position, tilesPosition[0], speed * Time.deltaTime);
-            newPos.z = transform.position.z;
-
-            transform.position = newPos;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (tilesPosition[0].x, transform.position.y, tilesPosition[0].z), speed * Time.deltaTime);
+            print(transform.gameObject);
 
             //GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = tilesPosition[0];
         }

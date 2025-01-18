@@ -8,7 +8,7 @@ public class Player : Character
 
     public override void Start()
     {
-        GetComponent<Animator>().Play("Player_Idle");
+        //GetComponent<Animator>().Play("Player_Idle");
         GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = startingTile.transform;
         GameObject.Find("GameManager").GetComponent<GameManager>()._accessibleTiles.Add(startingTile.transform);
     }

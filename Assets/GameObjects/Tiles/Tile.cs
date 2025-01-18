@@ -216,7 +216,7 @@ public class Tile : MonoBehaviour
         if (transform == manager._playerPosition)
         {
             
-            if(manager._mostAccuratePath.Count >= list.Count || manager._mostAccuratePath.Count == 0)
+            if(manager._mostAccuratePath.Count <= list.Count || manager._mostAccuratePath.Count == 0)
             {
                 manager._mostAccuratePath = list;
                 print("most accurate is : " + list);
