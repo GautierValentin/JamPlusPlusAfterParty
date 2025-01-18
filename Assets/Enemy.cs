@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     // Start is called before the first frame update
-    public void Start()
+    public override void Start()
     {
         
     }
@@ -13,6 +13,5 @@ public class Enemy : Character
     // Update is called once per frame
     public override void Update() 
     {
-
     }
 }

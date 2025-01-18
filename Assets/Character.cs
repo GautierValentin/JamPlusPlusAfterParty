@@ -6,6 +6,12 @@ public class Character : MonoBehaviour
 {
     public int attackPower;
 
+    //Start is called once before the first frame
+    virtual public void Start()
+    {
+
+    }
+
     // Update is called once per frame
     virtual public void Update()
     {
