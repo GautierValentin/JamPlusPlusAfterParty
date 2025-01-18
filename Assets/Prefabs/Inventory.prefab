@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCameraTransform: {fileID: 0}
   distanceFromMainCamera: 0
+  tile: {fileID: 3199518979926906019, guid: 03e381aee15899041860a85bd94242b8, type: 3}
