@@ -22,10 +22,7 @@ public class MoveToIsle : MonoBehaviour
         {
             tilesPosition.Add(Path[i].position);
         }
-    }
 
-    public void StartMovements()
-    {
         InMove = true;
     }
 
@@ -33,6 +30,8 @@ public class MoveToIsle : MonoBehaviour
     {
         if (InMove)
         {
+            transform.LookAt(tilesPosition[0]);
+
             if (transform.position.x == tilesPosition[0].x && transform.position.y == tilesPosition[0].y)
                 tilesPosition.RemoveAt(0);
 

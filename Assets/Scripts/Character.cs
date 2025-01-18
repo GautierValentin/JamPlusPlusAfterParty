@@ -8,10 +8,20 @@ public class Character : MonoBehaviour
 
     public ParticleSystem deathEffect;
 
+    public LinkDirection lookDirection = LinkDirection.TOP;
+
+    static private Dictionary<LinkDirection, float> dictDirection = new Dictionary<LinkDirection, float>() {
+        {LinkDirection.TOP, 0},
+        {LinkDirection.TOPRIGHT, 60},
+        {LinkDirection.BOTRIGHT, 120},
+        {LinkDirection.BOT, 180},
+        {LinkDirection.BOTLEFT, 240},
+         {LinkDirection.TOPLEFT, 240},
+    };
+
     //Start is called once before the first frame
     virtual public void Start()
     {
-
     }
 
     // Update is called once per frame
