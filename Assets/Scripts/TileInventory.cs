@@ -138,7 +138,7 @@ public class TileInventory : MonoBehaviour
                 tileSelected.GetComponent<TileHandler>().RotateClockwise();
             }
 
-            else if (Input.GetKeyDown(KeyCode.A))
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
                 tileSelected.GetComponent<TileHandler>().RotateCounterClockwise();
             }

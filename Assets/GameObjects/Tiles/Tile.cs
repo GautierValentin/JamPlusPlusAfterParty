@@ -43,14 +43,13 @@ public class Tile : MonoBehaviour
 
     public void RotateRight()
     {
-        bool buf = _directions[0];
-        for (int i = 0; i < _directions.Length - 1; i++)
+        bool buf = _directions[_directions.Length - 1];
+        for (int i = _directions.Length - 1; i > 0; i--)
         {
             int prev = i - 1;
-            if (prev < 0) prev = _directions.Length - 1;
-            _directions[prev] = _directions[i];
+            _directions[i] = _directions[prev];
         }
-        _directions[_directions.Length - 1] = buf;
+        _directions[0] = buf;
     }
 
     public void RotateLeft()
@@ -59,8 +58,7 @@ public class Tile : MonoBehaviour
         for (int i = 0; i < _directions.Length - 1; i++)
         {
             int next = i + 1;
-            if (next > 6) next = _directions.Length - 1;
-            _directions[next] = _directions[i];
+            _directions[i] = _directions[next];
         }
         _directions[_directions.Length - 1] = buf;
     }
