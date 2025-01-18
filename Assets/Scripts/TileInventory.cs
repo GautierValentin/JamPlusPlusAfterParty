@@ -125,6 +125,9 @@ public class TileInventory : MonoBehaviour
                 {
                     tilesInGrid.Add(gridCoord, tileSelected);
 
+                    //tileSelected.transform.localRotation = Quaternion.Euler(0, tileSelected.transform.rotation.eulerAngles.y, 0);
+
+                    tileSelected.transform.parent = null;
                     RemoveTile(tilesInHand.IndexOf(tileSelected));
 
                     tileSelected.GetComponent<TileHandler>().selected = false;
