@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Event : MonoBehaviour
 {
     public Enemy Enemy;
 
-    public GameObject chest;
+    public Chest chest;
 
-    public int amount;
+    public int amount = 0;
 
     public TileInventory inventory;
 
-    public List<Tile> tiles;
+    public List<GameObject> tiles;
+
+    public bool isEnemyTheBoss = false;
 
     public void IslandEvent(Player player)
     {
@@ -22,19 +25,26 @@ public class Event : MonoBehaviour
 
             if (Enemy.attackPower > player.attackPower)
             {
-                //Game Over
+                player.ChangeAnimation("Player_Death");
+                //Game Over : LoadSceneAsync("GameOverScene");
+                return;
             }
 
-            //Enemy die
-            Destroy(Enemy.gameObject);
+            Enemy.ChangeAnimation("Enemy_Death");
+            if (isEnemyTheBoss)
+            {
+                // LoadSceneAsync("WinScene");
+                return;
+            }
         }
+
+        chest.OpenChest();
 
         player.AddAttackPower(amount);
 
         for (int i = 0; i < tiles.Count; i++)
         {
-            //inventory.Add(tiles[i]);
+            inventory.AddTile(tiles[i]);
         }
     }
-
 }

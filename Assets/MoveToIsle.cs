@@ -2,20 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class MoveToIsle : MonoBehaviour
 {
-    [Range(0.1f, 2f)]
+    [Range(0.1f, 5f)]
     public float speed = 1.0f;
 
     private List<Vector3> tilesPosition;
 
     private bool InMove;
 
-    public void AddTilePosition(Vector3 tilePosition)
+    public void GetPath()
     {
-        tilesPosition.Add(tilePosition);
+        List<Transform> Path = GameObject.Find("GameManager").GetComponent<GameManager>()._mostAccuratePath;
+
+        for (int i = 0; i < Path.Count; i++)
+        {
+            tilesPosition.Add(Path[i].position);
+        }
     }
 
     public void StartMovements()
@@ -27,7 +33,7 @@ public class MoveToIsle : MonoBehaviour
     {
         if (InMove)
         {
-            if (transform.position == tilesPosition[0])
+            if (transform.position.x == tilesPosition[0].x && transform.position.y == tilesPosition[0].y)
                 tilesPosition.RemoveAt(0);
 
             if (tilesPosition.Count == 0)
@@ -36,7 +42,10 @@ public class MoveToIsle : MonoBehaviour
                 return;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, tilesPosition[0], speed * Time.deltaTime);
+            Vector3 newPos = Vector3.MoveTowards(transform.position, tilesPosition[0], speed * Time.deltaTime);
+            newPos.z = transform.position.z;
+
+            transform.position = newPos;
         }
     }
 }
