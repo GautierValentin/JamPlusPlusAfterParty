@@ -22,13 +22,13 @@ public class TileHandler : MonoBehaviour
     {
         hovered = false;
         selected = false;
-        targetRotation = transform.rotation;
+        targetRotation = transform.localRotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
 
     public void RotateClockwise()
@@ -37,7 +37,7 @@ public class TileHandler : MonoBehaviour
         rotationOffset++;
         rotationOffset = rotationOffset >= 6 ? 0 : rotationOffset;
 
-        targetRotation*= Quaternion.Euler(Vector3.up * 60);
+        targetRotation *= Quaternion.Euler(Vector3.up * 60);
 
         tileScript.RotateRight();
     }
