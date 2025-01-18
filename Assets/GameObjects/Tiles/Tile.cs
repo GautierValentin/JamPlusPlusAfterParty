@@ -180,8 +180,10 @@ public class Tile : MonoBehaviour
 
         foreach (Tile tile in linked)
         {
+            // check if youi are adjacent to an accessible cell
             if(manager._accessibleTiles.Contains(tile.transform))
             {
+                // if so, you get yourself an accessible tile
                 manager._accessibleTiles.Add(transform);
                 if (_isPOI)
                 {
@@ -189,11 +191,14 @@ public class Tile : MonoBehaviour
 
                     Debug.Log("Hey there's an accessible point of interest");
 
-                    PathFind(new());
+                    List<Transform> arg = new();
+                    arg.Add(tile.transform);
+                    PathFind(arg);
                     
                 }
                 else
                 {
+                    // if you're not a POI, then you check for setting your niehbour accessible
                     foreach(Tile neighbour in linked)
                     {
                         if(false == manager._accessibleTiles.Contains(neighbour.transform))
@@ -215,8 +220,9 @@ public class Tile : MonoBehaviour
 
         if (transform == manager._playerPosition)
         {
+            print("GGGG");
             
-            if(manager._mostAccuratePath.Count <= list.Count || manager._mostAccuratePath.Count == 0)
+            if(manager._mostAccuratePath.Count >= list.Count || manager._mostAccuratePath.Count == 0)
             {
                 manager._mostAccuratePath = list;
                 print("most accurate is : " + list);

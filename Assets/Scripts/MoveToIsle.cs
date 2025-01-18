@@ -53,7 +53,6 @@ public class MoveToIsle : MonoBehaviour
             }
 
             transform.position = Vector3.MoveTowards(transform.position, new Vector3 (tilesPosition[0].x, transform.position.y, tilesPosition[0].z), speed * Time.deltaTime);
-            print(transform.gameObject);
 
             //GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = tilesPosition[0];
         }
