@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    // Possibly Useless
     ///
     /// INTERNAL STUFF
     ///
@@ -48,13 +49,18 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextLevel()
     {
         // Single Level case
-        if (isSingleLevel)  LoadSpecificScene("MainMenu");
+        if (isSingleLevel)
+        {
+            LoadSpecificScene("LevelSelectionMenu");
+            return;
+        }
 
         // Regular playthrough
         int nextLevel = curLevel + 1;
-        if (nextLevel <= levelCount)  LoadSpecificLevel(nextLevel);
+        if (nextLevel <= levelCount)
+            LoadSpecificLevel(nextLevel);
         else
-            Debug.Log("Can't load next level : There is no next level !");
+            LoadSpecificScene("MainMenu");
     }
     public void UnloadSpecificScene(string ARGsceneName)
     {
