@@ -16,6 +16,8 @@ public class TileHandler : MonoBehaviour
     public bool hovered;
     public bool selected;
 
+    public bool pickable = true;
+
     const float rotationSpeed = 8.0f;
 
     void Start()
