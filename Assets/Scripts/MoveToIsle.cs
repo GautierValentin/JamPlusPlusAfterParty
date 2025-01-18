@@ -10,13 +10,18 @@ public class MoveToIsle : MonoBehaviour
     [Range(0.1f, 5f)]
     public float speed = 1.0f;
 
-    private List<Vector3> tilesPosition;
+    private List<Vector3> tilesPosition = new();
 
     private bool InMove;
 
     public void GetPath()
     {
         List<Transform> Path = GameObject.Find("GameManager").GetComponent<GameManager>()._mostAccuratePath;
+
+        if(Path == null)
+        {
+            return;
+        }
 
         for (int i = 0; i < Path.Count; i++)
         {
@@ -46,6 +51,8 @@ public class MoveToIsle : MonoBehaviour
             newPos.z = transform.position.z;
 
             transform.position = newPos;
+
+            //GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = tilesPosition[0];
         }
     }
 }

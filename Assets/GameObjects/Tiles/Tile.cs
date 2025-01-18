@@ -186,7 +186,11 @@ public class Tile : MonoBehaviour
                 if (_isPOI)
                 {
                     manager._mostAccuratePath = new();
+
+                    Debug.Log("Hey there's an accessible point of interest");
+
                     PathFind(new());
+                    
                 }
                 else
                 {

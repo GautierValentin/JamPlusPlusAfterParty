@@ -143,6 +143,9 @@ public class TileInventory : MonoBehaviour
 
                         tileSelected.GetComponent<TileHandler>().selected = false;
                         tileSelected.GetComponent<Tile>().OnSet();
+
+                        GameObject.Find("Player").GetComponent<MoveToIsle>().GetPath();
+
                         tileSelected = null;
                         isTileSelected = false;
                     }
