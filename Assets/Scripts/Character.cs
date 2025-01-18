@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -22,6 +23,7 @@ public class Character : MonoBehaviour
     //Start is called once before the first frame
     virtual public void Start()
     {
+        transform.rotation = Quaternion.Euler(0, dictDirection[lookDirection], 0);
     }
 
     // Update is called once per frame
@@ -43,6 +45,11 @@ public class Character : MonoBehaviour
     public void PlayDeathEffect()
     {
         deathEffect.Play();
+    }
+
+    public Dictionary<LinkDirection, float> GetDirections()
+    {
+        return dictDirection;
     }
 
 }

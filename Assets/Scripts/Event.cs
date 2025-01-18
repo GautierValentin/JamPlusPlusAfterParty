@@ -21,9 +21,18 @@ public class Event : MonoBehaviour
     {
         if (Enemy != null)
         {
+            Dictionary<LinkDirection, float> dictdirections = Enemy.GetDirections();
+
+            int attackpower = player.attackPower;
+
+            if (dictdirections[player.lookDirection] == dictdirections[Enemy.lookDirection])
+            {
+               attackpower *= 2;
+            }
+
             Enemy.transform.LookAt(player.transform.position);
 
-            if (Enemy.attackPower > player.attackPower)
+            if (Enemy.attackPower > attackpower)
             {
                 player.ChangeAnimation("Player_Death");
                 //Game Over : LoadSceneAsync("GameOverScene");
@@ -33,7 +42,7 @@ public class Event : MonoBehaviour
             Enemy.ChangeAnimation("Enemy_Death");
             if (isEnemyTheBoss)
             {
-                // LoadSceneAsync("WinScene");
+                //LoadSceneAsync("WinScene");
                 return;
             }
         }

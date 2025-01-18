@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class MoveToIsle : MonoBehaviour
 {
@@ -30,7 +31,9 @@ public class MoveToIsle : MonoBehaviour
     {
         if (InMove)
         {
-            transform.LookAt(tilesPosition[0]);
+            float angle = Vector3.SignedAngle(transform.position, tilesPosition[0], new Vector3(0,1,0));
+
+            GetComponent<Player>().lookDirection = LoopThroughKeyValuePairs(angle + 180);
 
             if (transform.position.x == tilesPosition[0].x && transform.position.y == tilesPosition[0].y)
                 tilesPosition.RemoveAt(0);
@@ -47,4 +50,17 @@ public class MoveToIsle : MonoBehaviour
             transform.position = newPos;
         }
     }
+
+    public LinkDirection LoopThroughKeyValuePairs(float value)
+    {
+        foreach (var keyValuePair in GetComponent<Player>().GetDirections())
+        {
+            if (keyValuePair.Value == value)
+            {
+                return keyValuePair.Key;
+            }
+        }
+        return default;
+    }
 }
+
