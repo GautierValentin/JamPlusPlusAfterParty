@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Character
 {
-    public int attackPower;
 
-    // Update is called once per frame
-    void Update()
+    // Update is called once per fram
+    public  override void Update()
     {
-        
-    }
 
-    public void AddAttackPower(int amount) {
-        attackPower += amount;
     }
 }
