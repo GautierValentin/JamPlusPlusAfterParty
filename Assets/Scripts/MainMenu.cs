@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         LevelLoader.SetIsSingleLevel(false);
-        LevelLoader.LoadSpecificScene("Level 1");
+        LevelLoader.LoadSpecificLevel(1);
     }
 
     // "Level Selection" Button implementation
@@ -45,6 +45,9 @@ public class MainMenu : MonoBehaviour
     // "Quit" Button implementation
     public void QuitApp()
     {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
         Application.Quit();
     }
 }

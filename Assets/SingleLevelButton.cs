@@ -25,6 +25,8 @@ public class SingleLevelButton : MonoBehaviour
     ///  -----------
     public void LoadSingleLevel()
     {
+        Debug.Log("Loading Level " + levelId);
+
         LevelLoader.SetIsSingleLevel(true);
         LevelLoader.LoadSpecificLevel(levelId);
     }
