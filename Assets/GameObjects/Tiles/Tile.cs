@@ -187,6 +187,7 @@ public class Tile : MonoBehaviour
                 {
                     manager._mostAccuratePath = new();
                     PathFind(new());
+                    GameObject.Find("Player").GetComponent<MoveToIsle>().GetPath();
                 }
                 else
                 {
