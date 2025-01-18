@@ -9,8 +9,6 @@ public class Pathfinding : MonoBehaviour
 
     public void Pathfind()
     {
-
-
     }
 
     private void SendPath(List<Vector3> Path)

@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class MoveToIsle : MonoBehaviour
 {
-    public Transform player;
-
     [Range(0.1f, 2f)]
     public float speed = 1.0f;
 
@@ -29,7 +27,7 @@ public class MoveToIsle : MonoBehaviour
     {
         if (InMove)
         {
-            if (player.position == tilesPosition[0])
+            if (transform.position == tilesPosition[0])
                 tilesPosition.RemoveAt(0);
 
             if (tilesPosition.Count == 0)
@@ -38,7 +36,7 @@ public class MoveToIsle : MonoBehaviour
                 return;
             }
 
-           player.position = Vector3.MoveTowards(player.position, tilesPosition[0], speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, tilesPosition[0], speed * Time.deltaTime);
         }
     }
 }
