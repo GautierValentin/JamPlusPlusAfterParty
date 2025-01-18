@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: f424edccbd083624296e4629c7f7d5d7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mainCameraTransform: {instanceID: 0}
+  - tile: {fileID: 4157173060663232509, guid: eb3c9040eeb39974eb8851f7e4fbd233, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

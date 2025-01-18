@@ -32,53 +32,64 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    OnSet();
-                    print("onset");
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = transform;
-                    print("locjed");
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(2))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    GameObject.Find("GameManager").GetComponent<GameManager>()._accessibleTiles.Add(transform);
-                    print("locjed222");
-                }
-            }
-        }
+
+        //DEBUG//
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+        //    {
+        //        if (hit.collider.gameObject == gameObject)
+        //        {
+        //            OnSet();
+        //            print("onset");
+        //        }
+        //    }
+        //}
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+        //    {
+        //        if (hit.collider.gameObject == gameObject)
+        //        {
+        //            GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = transform;
+        //            print("locjed");
+        //        }
+        //    }
+        //}
+        //if (Input.GetMouseButtonDown(2))
+        //{
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+        //    {
+        //        if (hit.collider.gameObject == gameObject)
+        //        {
+        //            GameObject.Find("GameManager").GetComponent<GameManager>()._accessibleTiles.Add(transform);
+        //            print("locjed222");
+        //        }
+        //    }
+        //}
+        //DEBUG END//
     }
 
-    private void RotateRight()
+    public void RotateRight()
+    {
+        bool buf = _directions[_directions.Length - 1];
+        for (int i = _directions.Length - 1; i > 0; i--)
+        {
+            int prev = i - 1;
+            _directions[i] = _directions[prev];
+        }
+        _directions[0] = buf;
+    }
+
+    public void RotateLeft()
     {
         bool buf = _directions[0];
         for (int i = 0; i < _directions.Length - 1; i++)
         {
-            int prev = i -1;
-            if (prev < 0) prev = _directions.Length - 1;
-            _directions[prev] = _directions[i];
+            int next = i + 1;
+            _directions[i] = _directions[next];
         }
         _directions[_directions.Length - 1] = buf;
-
-        transform.Rotate(new Vector3(0, 60, 0));
     }
 
     List<Tile> GetLinkedTiles()
