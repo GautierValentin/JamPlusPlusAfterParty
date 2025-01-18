@@ -10,6 +10,10 @@ public class CameraController : MonoBehaviour
     const float movementLerpSpeed = 4f;
     const float maxX = 15.0f;
     const float minX = -15.0f;
+
+    const float maxY = 15.0f;
+    const float minY = 5.0f;
+
     const float maxZ = 15.0f;
     const float minZ = -15.0f;
 
@@ -50,14 +54,17 @@ public class CameraController : MonoBehaviour
             targetPosition += Vector3.left * Time.deltaTime * movementSpeed;
         }
 
+        targetPosition += Vector3.down * Input.mouseScrollDelta.y * zoomStrenght;
+
         // Clamp camera in game space
-        targetPosition = new Vector3(Mathf.Clamp(targetPosition.x, minX, maxX),
-            targetPosition.y,
+        targetPosition = new Vector3(
+            Mathf.Clamp(targetPosition.x, minX, maxX),
+            Mathf.Clamp(targetPosition.y, minY, maxY),
             Mathf.Clamp(targetPosition.z, minZ, maxZ));
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * movementLerpSpeed);
 
-        targetFov = Mathf.Clamp(targetFov - (Input.mouseScrollDelta.y * zoomStrenght), minFov, maxFov);
-        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFov, Time.deltaTime * zoomLerpSpeed);
+        //targetFov = Mathf.Clamp(targetFov - (Input.mouseScrollDelta.y * zoomStrenght), minFov, maxFov);
+        //Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFov, Time.deltaTime * zoomLerpSpeed);
     }
 }

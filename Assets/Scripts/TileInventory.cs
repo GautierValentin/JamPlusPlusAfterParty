@@ -38,8 +38,8 @@ public class TileInventory : MonoBehaviour
     {
         handSize = 0;
 
-        inventoryOffset = new Vector3(0, 0, -2);
-        distanceFromMainCamera = 5;
+        inventoryOffset = new Vector3(0, 0, -1.25f);
+        distanceFromMainCamera = 2;
     }
 
     // Update is called once per frame
@@ -100,7 +100,7 @@ public class TileInventory : MonoBehaviour
                             }
 
                             if(hitTile.collider.gameObject.GetComponent<TileHandler>().pickable)
-                            {
+                            { 
                                 isTileSelected = true;
                                 hitTile.collider.gameObject.GetComponent<TileHandler>().selected = true;
                                 tileSelected = hitTile.collider.gameObject;
@@ -136,8 +136,6 @@ public class TileInventory : MonoBehaviour
                     {
                         tilesInGrid.Add(gridCoord, tileSelected);
 
-                        //tileSelected.transform.localRotation = Quaternion.Euler(0, tileSelected.transform.rotation.eulerAngles.y, 0);
-
                         tileSelected.transform.parent = null;
                         RemoveTile(tilesInHand.IndexOf(tileSelected));
 
@@ -171,7 +169,7 @@ public class TileInventory : MonoBehaviour
                 Vector3 hoveredOffset;
                 Vector3 offsetInHand;
 
-                offsetInHand = ((float)i - (float)handSize / 2 + 0.5f) * new Vector3(3, 0, 0);
+                offsetInHand = ((float)i - (float)handSize / 2 + 0.5f) * new Vector3(0.5f, 0, 0);
 
                 if (tileScriptsInHand[i].hovered)
                 {
@@ -195,6 +193,13 @@ public class TileInventory : MonoBehaviour
 
                 tilesInHand[i].transform.localPosition = Vector3.Lerp(tilesInHand[i].transform.localPosition, inventoryOffset + offsetInHand + hoveredOffset + powerOffset, 4 * Time.deltaTime);
                 tilesInHand[i].transform.localRotation = Quaternion.identity;
+
+                tilesInHand[i].transform.localScale = Vector3.one * 0.15f;
+            }
+
+            else
+            {
+                tilesInHand[i].transform.localScale = Vector3.one * 0.5f;
             }
 
             tileScriptsInHand[i].hovered = false;
@@ -207,7 +212,7 @@ public class TileInventory : MonoBehaviour
         GameObject newTile = Instantiate(tile, Vector3.zero, Quaternion.identity);
 
         newTile.transform.parent = transform;
-        newTile.transform.localPosition = inventoryOffset + ((float)handSize / 2 + 0.5f) * new Vector3(3, 0, 0);
+        newTile.transform.localPosition = inventoryOffset + ((float)handSize / 2 + 0.5f) * new Vector3(0.5f, 0, 0);
         newTile.transform.localRotation = Quaternion.identity;
 
         tilesInHand.Add(newTile);
