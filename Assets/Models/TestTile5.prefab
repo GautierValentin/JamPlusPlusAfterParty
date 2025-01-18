@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5202052989688877983}
+  - component: {fileID: 5907663689215529518}
   m_Layer: 0
   m_Name: TestTile5
   m_TagString: Untagged
@@ -26,12 +27,30 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3765437844131277358}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5907663689215529518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441825290385638196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc3ad3335c4a4f4eadadf3ca5b1dcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _top: 1
+  _topRight: 1
+  _botRight: 0
+  _bot: 0
+  _botLeft: 0
+  _topLeft: 0
 --- !u!1001 &3732143484123778501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43,17 +62,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 02886c3beb650c74eb9d1ac0b9693cb7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02886c3beb650c74eb9d1ac0b9693cb7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02886c3beb650c74eb9d1ac0b9693cb7,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02886c3beb650c74eb9d1ac0b9693cb7,
         type: 3}
