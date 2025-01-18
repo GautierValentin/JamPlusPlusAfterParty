@@ -10,14 +10,23 @@ public class TileInventory : MonoBehaviour
     public float distanceFromMainCamera;
     Vector3 inventoryOffset;
 
+    public Dictionary<Vector3Int, GameObject> tilesInGrid = new();
+
     List<TileHandler> tileScriptsInHand = new();
     List<GameObject> tilesInHand = new();
     int handSize;
 
+    [SerializeField]
+    Grid grid;
+
     bool isTileSelected;
     GameObject tileSelected;
 
-    public GameObject tile;
+    public GameObject tile1;
+    public GameObject tile2;
+    public GameObject tile3;
+    public GameObject tile4;
+    public GameObject tile5;
 
     void Start()
     {
@@ -35,9 +44,29 @@ public class TileInventory : MonoBehaviour
         transform.eulerAngles = mainCameraTransform.rotation.eulerAngles + new Vector3(-90, 0, 0);
 
         // Debug //
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            AddTile(tile);
+            AddTile(tile1);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            AddTile(tile2);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            AddTile(tile3);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            AddTile(tile4);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            AddTile(tile5);
         }
 
         else if (Input.GetKeyDown(KeyCode.K))
@@ -62,7 +91,6 @@ public class TileInventory : MonoBehaviour
                             tileScriptsInHand[i].selected = false;
                         }
 
-                        Debug.Log("Selected");
                         isTileSelected = true;
                         hitTile.collider.gameObject.GetComponent<TileHandler>().selected = true;
                         tileSelected = hitTile.collider.gameObject;
@@ -71,7 +99,6 @@ public class TileInventory : MonoBehaviour
                     else
                     {
                         hitTile.collider.gameObject.GetComponent<TileHandler>().hovered = true;
-                        tileSelected = null;
                     }
                 }
             }
@@ -84,16 +111,26 @@ public class TileInventory : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitBoard, 100, 1 << 7))
             {
-                tileSelected.transform.position = hitBoard.point + new Vector3(0.5f, 0.5f, 0);
+                Vector3Int gridCoord = grid.WorldToCell(hitBoard.point);
+
+                tileSelected.transform.position = grid.CellToWorld(gridCoord);
             }
 
             if (Input.GetMouseButtonDown(0))
             {
                 // Check if on valid slot and place here
+                Vector3Int gridCoord = grid.WorldToCell(hitBoard.point);
 
-                Debug.Log("Unselected");
-                tileSelected.GetComponent<TileHandler>().selected = false;
-                isTileSelected = false;
+                if(!tilesInGrid.ContainsKey(gridCoord))
+                {
+                    tilesInGrid.Add(gridCoord, tileSelected);
+
+                    RemoveTile(tilesInHand.IndexOf(tileSelected));
+
+                    tileSelected.GetComponent<TileHandler>().selected = false;
+                    tileSelected = null;
+                    isTileSelected = false;
+                }
             }
 
             else if (Input.GetKeyDown(KeyCode.E))
@@ -129,11 +166,13 @@ public class TileInventory : MonoBehaviour
                 tilesInHand[i].transform.localPosition = Vector3.Lerp(tilesInHand[i].transform.localPosition, inventoryOffset + offsetInHand + hoveredOffset, 4 * Time.deltaTime);
                 tilesInHand[i].transform.localRotation = Quaternion.identity;
             }
+
+            tileScriptsInHand[i].hovered = false;
         }
     }
 
 
-    void AddTile(GameObject tile)
+    public void AddTile(GameObject tile)
     {
         GameObject newTile = Instantiate(tile, Vector3.zero, Quaternion.identity);
 
@@ -145,12 +184,10 @@ public class TileInventory : MonoBehaviour
         tileScriptsInHand.Add(newTile.GetComponent<TileHandler>());
 
         handSize++;
-        Console.WriteLine("Added tile");
     }
 
     void RemoveTile(int index)
     {
-        Destroy(tilesInHand[index]);
         tilesInHand.RemoveAt(index);
         tileScriptsInHand.RemoveAt(index);
         handSize--;

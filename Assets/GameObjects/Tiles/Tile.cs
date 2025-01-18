@@ -13,7 +13,7 @@ public class Tile : MonoBehaviour
     [SerializeField] bool _botLeft;
     [SerializeField] bool _topLeft;
 
-    [NonSerialized] public bool[] _directions = new bool[6];
+    [SerializeField] public bool[] _directions = new bool[6];
     
 
     private void Start()
@@ -41,18 +41,28 @@ public class Tile : MonoBehaviour
         //}
     }
 
-    private void RotateRight()
+    public void RotateRight()
     {
         bool buf = _directions[0];
         for (int i = 0; i < _directions.Length - 1; i++)
         {
-            int prev = i -1;
+            int prev = i - 1;
             if (prev < 0) prev = _directions.Length - 1;
             _directions[prev] = _directions[i];
         }
         _directions[_directions.Length - 1] = buf;
+    }
 
-        transform.Rotate(new Vector3(0, 60, 0));
+    public void RotateLeft()
+    {
+        bool buf = _directions[0];
+        for (int i = 0; i < _directions.Length - 1; i++)
+        {
+            int next = i + 1;
+            if (next > 6) next = _directions.Length - 1;
+            _directions[next] = _directions[i];
+        }
+        _directions[_directions.Length - 1] = buf;
     }
 
     List<Tile> GetLinkedTiles()

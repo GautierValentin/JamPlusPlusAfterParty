@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5202052989688877983}
   - component: {fileID: 965928622209413809}
-  - component: {fileID: 4399884187522212698}
-  m_Layer: 0
+  - component: {fileID: -8625314961030410423}
+  - component: {fileID: -4289060713605650389}
+  m_Layer: 6
   m_Name: TestTile4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,8 +53,24 @@ MonoBehaviour:
   _bot: 0
   _botLeft: 0
   _topLeft: 0
---- !u!65 &4399884187522212698
-BoxCollider:
+--- !u!114 &-8625314961030410423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441825290385638196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff82a83f87f9b74686fc1a1efb66d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileScript: {fileID: 965928622209413809}
+  rotationOffset: 0
+  hovered: 0
+  selected: 0
+--- !u!135 &-4289060713605650389
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -71,7 +88,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4651661564052565387
 PrefabInstance:
