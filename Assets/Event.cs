@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Event : MonoBehaviour
 {
-
     public Enemy Enemy;
+
+    public GameObject chest;
 
     public int amount;
 
@@ -24,7 +25,7 @@ public class Event : MonoBehaviour
             }
 
             //Enemy die
-            Destroy(Enemy);
+            Destroy(Enemy.gameObject);
         }
 
         player.AddAttackPower(amount);

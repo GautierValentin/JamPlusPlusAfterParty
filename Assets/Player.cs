@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public override void Start()
+    {
+        GetComponent<Animator>().Play("Player_Idle");
+    }
 
     // Update is called once per fram
     public  override void Update()

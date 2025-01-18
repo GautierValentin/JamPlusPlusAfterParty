@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
 {
     public int attackPower;
 
+    public ParticleSystem deathEffect;
+
     //Start is called once before the first frame
     virtual public void Start()
     {
@@ -21,6 +23,16 @@ public class Character : MonoBehaviour
     public void AddAttackPower(int amount)
     {
         attackPower += amount;
+    }
+
+    public void ChangeAnimation(string fileName, float crossfade = 0.2f)
+    {
+        GetComponent<Animator>().CrossFade(fileName, crossfade);
+    }
+
+    public void PlayDeathEffect()
+    {
+        deathEffect.Play();
     }
 
 }
