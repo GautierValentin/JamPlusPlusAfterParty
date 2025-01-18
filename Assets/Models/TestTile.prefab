@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776906905502089195}
+  - component: {fileID: 3322882917266250150}
+  - component: {fileID: 2070743909702143628}
   m_Layer: 0
   m_Name: TestTile
   m_TagString: Untagged
@@ -32,6 +34,45 @@ Transform:
   - {fileID: 4651077901396894054}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3322882917266250150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583042794287737324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc3ad3335c4a4f4eadadf3ca5b1dcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _top: 1
+  _topRight: 1
+  _botRight: 1
+  _bot: 1
+  _botLeft: 1
+  _topLeft: 1
+--- !u!65 &2070743909702143628
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583042794287737324}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5116453974199961229
 PrefabInstance:
   m_ObjectHideFlags: 0
