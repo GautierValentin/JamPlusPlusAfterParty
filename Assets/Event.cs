@@ -18,6 +18,7 @@ public class Event : MonoBehaviour
     {
         if (Enemy != null)
         {
+            Enemy.transform.LookAt(player.transform.position);
 
             if (Enemy.attackPower > player.attackPower)
             {
