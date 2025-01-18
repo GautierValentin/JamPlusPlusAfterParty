@@ -32,39 +32,42 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    OnSet();
-                    print("onset");
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = transform;
-                    print("locjed");
-                }
-            }
-        }
-        if (Input.GetMouseButtonDown(2))
-        {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
-            {
-                if (hit.collider.gameObject == gameObject)
-                {
-                    GameObject.Find("GameManager").GetComponent<GameManager>()._accessibleTiles.Add(transform);
-                    print("locjed222");
-                }
-            }
-        }
+
+        //DEBUG//
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+        //    {
+        //        if (hit.collider.gameObject == gameObject)
+        //        {
+        //            OnSet();
+        //            print("onset");
+        //        }
+        //    }
+        //}
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+        //    {
+        //        if (hit.collider.gameObject == gameObject)
+        //        {
+        //            GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = transform;
+        //            print("locjed");
+        //        }
+        //    }
+        //}
+        //if (Input.GetMouseButtonDown(2))
+        //{
+        //    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+        //    {
+        //        if (hit.collider.gameObject == gameObject)
+        //        {
+        //            GameObject.Find("GameManager").GetComponent<GameManager>()._accessibleTiles.Add(transform);
+        //            print("locjed222");
+        //        }
+        //    }
+        //}
+        //DEBUG END//
     }
 
     public void RotateRight()

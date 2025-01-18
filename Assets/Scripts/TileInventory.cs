@@ -131,6 +131,7 @@ public class TileInventory : MonoBehaviour
                     RemoveTile(tilesInHand.IndexOf(tileSelected));
 
                     tileSelected.GetComponent<TileHandler>().selected = false;
+                    tileSelected.GetComponent<Tile>().OnSet();
                     tileSelected = null;
                     isTileSelected = false;
                 }
