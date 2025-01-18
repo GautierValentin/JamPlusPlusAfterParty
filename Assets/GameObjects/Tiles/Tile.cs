@@ -6,12 +6,16 @@ using static LinkDirection;
 
 public class Tile : MonoBehaviour
 {
+    [Header("Accessible directions")]
     [SerializeField] bool _top;
     [SerializeField] bool _topRight;
     [SerializeField] bool _botRight;
     [SerializeField] bool _bot;
     [SerializeField] bool _botLeft;
     [SerializeField] bool _topLeft;
+
+    [Header("It is a point of interrest if it contains something (loot / monster)")]
+    [SerializeField] bool _isPOI;
 
     [NonSerialized] public bool[] _directions = new bool[6];
     
@@ -28,17 +32,39 @@ public class Tile : MonoBehaviour
 
     private void Update()
     {
-        //if(Input.GetMouseButtonDown(0))
-        //{
-        //    if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
-        //    {
-        //        if (hit.collider.gameObject == gameObject)
-        //        {
-        //            var test = GetLinkedTiles();
-        //            print(test.Count);
-        //        }
-        //    }
-        //}
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    OnSet();
+                    print("onset");
+                }
+            }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = transform;
+                    print("locjed");
+                }
+            }
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 100, -1))
+            {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    GameObject.Find("GameManager").GetComponent<GameManager>()._accessibleTiles.Add(transform);
+                    print("locjed222");
+                }
+            }
+        }
     }
 
     private void RotateRight()
@@ -135,4 +161,62 @@ public class Tile : MonoBehaviour
         return linked;
     }
 
+    public void OnSet()
+    {
+        GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        List<Tile> linked = GetLinkedTiles();
+
+        foreach (Tile tile in linked)
+        {
+            if(manager._accessibleTiles.Contains(tile.transform))
+            {
+                manager._accessibleTiles.Add(transform);
+                if (_isPOI)
+                {
+                    manager._mostAccuratePath = new();
+                    PathFind(new());
+                }
+                else
+                {
+                    foreach(Tile neighbour in linked)
+                    {
+                        if(false == manager._accessibleTiles.Contains(neighbour.transform))
+                        {
+                            neighbour.OnSet();
+                        }
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    void PathFind(List<Transform> list)
+    {
+        GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        list.Add(transform);
+
+        if (transform == manager._playerPosition)
+        {
+            
+            if(manager._mostAccuratePath.Count >= list.Count || manager._mostAccuratePath.Count == 0)
+            {
+                manager._mostAccuratePath = list;
+                print("most accurate is : " + list);
+            }
+            return;
+        }
+
+        List<Tile> linked = GetLinkedTiles();
+
+        foreach (Tile tile in linked)
+        {
+            if(false == list.Contains(tile.transform))
+            {
+                tile.PathFind(list);
+            }
+        }
+    }
 }
