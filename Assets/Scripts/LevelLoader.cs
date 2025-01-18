@@ -18,17 +18,27 @@ public class LevelLoader : MonoBehaviour
     }
 
 
+<<<<<<< HEAD
 
     ///  ----
     /// FIELDS
     ///  ----
     [SerializeField] private int curLevel;
     [SerializeField] private int levelCount = 10;
+=======
+    ///  ----
+    /// FIELDS
+    ///  ----
+    [SerializeField] int curLevel;
+    [SerializeField] int levelCount = 10;
+    [SerializeField] bool isSingleLevel = false;
+>>>>>>> origin/UI_Galore
 
 
     ///  -----------
     /// CLASS METHODS
     ///  -----------
+<<<<<<< HEAD
     public void LoadSpecificScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
@@ -57,6 +67,38 @@ public class LevelLoader : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+=======
+    // Setters
+    public void SetIsSingleLevel(bool ARGvalue)
+    {
+        isSingleLevel = ARGvalue;
+    }
+
+    // Scene loading & Cie
+    public void LoadSpecificScene(string ARGsceneName, bool ARGshouldLoadAdditively = false)
+    {
+        SceneManager.LoadScene(ARGsceneName, ARGshouldLoadAdditively ? LoadSceneMode.Additive : LoadSceneMode.Single);
+    }
+    public void LoadSpecificLevel(int ARGlevelId)
+    {
+        SceneManager.LoadScene("Level " + ARGlevelId, LoadSceneMode.Single);
+        curLevel = ARGlevelId;
+    }
+    public void LoadNextLevel()
+    {
+        // Single Level case
+        if (isSingleLevel)  LoadSpecificScene("MainMenu");
+
+        // Regular playthrough
+        int nextLevel = curLevel + 1;
+        if (nextLevel <= levelCount)  LoadSpecificLevel(nextLevel);
+        else
+            Debug.Log("Can't load next level : There is no next level !");
+    }
+    public void UnloadSpecificScene(string ARGsceneName)
+    {
+        SceneManager.UnloadSceneAsync(ARGsceneName);
+>>>>>>> origin/UI_Galore
     }
 
 
@@ -65,8 +107,13 @@ public class LevelLoader : MonoBehaviour
     ///  -------------
     void Update()
     {
+<<<<<<< HEAD
         // Left Click
         if (Input.GetMouseButtonDown(0))
+=======
+        // C key
+        if (Input.GetKeyDown(KeyCode.C))
+>>>>>>> origin/UI_Galore
         {
             LoadNextLevel();
         }

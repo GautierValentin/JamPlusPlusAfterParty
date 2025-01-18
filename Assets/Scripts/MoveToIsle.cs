@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class MoveToIsle : MonoBehaviour
 {
@@ -27,10 +28,7 @@ public class MoveToIsle : MonoBehaviour
         {
             tilesPosition.Add(Path[i].position);
         }
-    }
 
-    public void StartMovements()
-    {
         InMove = true;
     }
 
@@ -38,6 +36,10 @@ public class MoveToIsle : MonoBehaviour
     {
         if (InMove)
         {
+            float angle = Vector3.SignedAngle(transform.position, tilesPosition[0], new Vector3(0,1,0));
+
+            GetComponent<Player>().lookDirection = LoopThroughKeyValuePairs(angle + 180);
+
             if (transform.position.x == tilesPosition[0].x && transform.position.y == tilesPosition[0].y)
                 tilesPosition.RemoveAt(0);
 
@@ -55,4 +57,17 @@ public class MoveToIsle : MonoBehaviour
             //GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = tilesPosition[0];
         }
     }
+
+    public LinkDirection LoopThroughKeyValuePairs(float value)
+    {
+        foreach (var keyValuePair in GetComponent<Player>().GetDirections())
+        {
+            if (keyValuePair.Value == value)
+            {
+                return keyValuePair.Key;
+            }
+        }
+        return default;
+    }
 }
+
