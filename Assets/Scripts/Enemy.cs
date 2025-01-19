@@ -12,6 +12,9 @@ public class Enemy : Character
     public int powerReward;
     public int tileReward;
     public bool isEnemyTheBoss;
+
+    public Transform rewardCanvas;
+
     [SerializeField] TextMeshProUGUI powerText;
     [SerializeField] TextMeshProUGUI powerRewardText;
     [SerializeField] TextMeshProUGUI tileRewardText;
@@ -29,5 +32,7 @@ public class Enemy : Character
         GetComponent<Animator>().Play("Enemy_Idle");
 
         base.Start();
+
+        powerCanvas.localRotation = Quaternion.Euler(90, -dictDirection[lookDirection], 0);
     }
 }

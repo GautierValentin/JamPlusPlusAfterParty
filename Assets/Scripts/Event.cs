@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,7 +11,7 @@ public class Event : MonoBehaviour
 {
     public Enemy Enemy;
     public Chest Chest;
-    public List<GameObject> tiles;
+    public List<GameObject> tiles = new();
     TileInventory Inventory;
 
 
@@ -29,12 +30,13 @@ public class Event : MonoBehaviour
         
         if (Enemy != null)
         {
-            Dictionary<LinkDirection, float> dictdirections = Enemy.GetDirections();
-
             int attackpower = player.attackPower;
 
-            if (dictdirections[player.lookDirection] == dictdirections[Enemy.lookDirection])
+           
+
+            if (Mathf.Abs(player.transform.rotation.eulerAngles.y - Enemy.transform.rotation.eulerAngles.y) <= 1)
             {
+               Debug.Log("x2 damage");
                attackpower *= 2;
             }
 
@@ -49,7 +51,9 @@ public class Event : MonoBehaviour
                 Enemy.GetComponent<Animator>().SetBool("IsDead", true);
             }
 
-            Enemy.transform.LookAt(player.transform.position);
+            Enemy.transform.rotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y + 180, 0);
+            Enemy.powerCanvas.localRotation = Quaternion.Euler(90, -Enemy.transform.rotation.eulerAngles.y, 0);
+            Enemy.rewardCanvas.localRotation = Quaternion.Euler(90, -Enemy.transform.rotation.eulerAngles.y, 0);
 
             Enemy.GetComponent<Animator>().SetTrigger("Battle");
             player.GetComponent<Animator>().SetTrigger("Battle");

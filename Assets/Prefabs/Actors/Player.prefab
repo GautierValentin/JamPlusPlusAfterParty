@@ -4919,6 +4919,7 @@ MonoBehaviour:
   attackPower: 0
   deathEffect: {fileID: 2600534481318367624}
   lookDirection: 0
+  powerCanvas: {fileID: 4395902271210915891}
   startingTile: {fileID: 0}
   txtComp: {fileID: 6538855165723933224}
   chestEvents:
