@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    // Changeable dans les settings
+    public float mouseDragAndDropSensitivity = 2.0f;
 
     const float movementSpeed = 8f;
     const float movementLerpSpeed = 4f;
@@ -19,10 +21,6 @@ public class CameraController : MonoBehaviour
 
     Vector3 targetPosition;
 
-    float targetFov = 50.0f;
-    const float minFov = 30;
-    const float maxFov = 80;
-    const float zoomLerpSpeed = 4.0f;
     const float zoomStrenght = 2.0f;
 
 
@@ -34,25 +32,43 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetMouseButton(2))
+        {
+            Vector3 inputToCamera = new Vector3(Input.mousePositionDelta.x, 0, Input.mousePositionDelta.y);
+
+            // THIS DOESN'T WORK WELL WITH OTHER INPUTS LIKE ZOOM
+            //transform.position -= inputToCamera * Time.deltaTime * mouseDragAndDropSensitivity;
+            //targetPosition = transform.position;
+
+            targetPosition -= inputToCamera * Time.deltaTime * mouseDragAndDropSensitivity;
+
+            Cursor.visible = false;
+        }
+
+        else
+        {
+            Cursor.visible = true;
+        }
+
+        if (Input.GetKey(KeyCode.W))
         {
             targetPosition += Vector3.forward * Time.deltaTime * movementSpeed;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             targetPosition += Vector3.back * Time.deltaTime * movementSpeed;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             targetPosition += Vector3.right * Time.deltaTime * movementSpeed;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             targetPosition += Vector3.left * Time.deltaTime * movementSpeed;
-        }
+        }     
 
         targetPosition += Vector3.down * Input.mouseScrollDelta.y * zoomStrenght;
 
@@ -63,8 +79,5 @@ public class CameraController : MonoBehaviour
             Mathf.Clamp(targetPosition.z, minZ, maxZ));
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * movementLerpSpeed);
-
-        //targetFov = Mathf.Clamp(targetFov - (Input.mouseScrollDelta.y * zoomStrenght), minFov, maxFov);
-        //Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFov, Time.deltaTime * zoomLerpSpeed);
     }
 }

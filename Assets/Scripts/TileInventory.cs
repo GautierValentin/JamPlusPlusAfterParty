@@ -25,7 +25,7 @@ public class TileInventory : MonoBehaviour
 
     public bool canSelect = true;
 
-    bool isTileSelected;
+    public bool isTileSelected;
     GameObject tileSelected;
 
     public GameObject tile1;
@@ -46,6 +46,14 @@ public class TileInventory : MonoBehaviour
         foreach (var tile in _startingHand)
         {
             AddTile(tile);
+        }
+
+        int baseTileAmount = grid.transform.GetChild(0).transform.childCount;
+        for (int i = 0; i < baseTileAmount; i++)
+        {
+            TileHandler baseTile = grid.transform.GetChild(0).transform.GetChild(i).gameObject.GetComponent<TileHandler>();
+
+            baseTile.Place();
         }
     }
 
@@ -106,14 +114,15 @@ public class TileInventory : MonoBehaviour
                                 tileScriptsInHand[i].selected = false;
                             }
 
-                            if(hitTile.collider.gameObject.GetComponent<TileHandler>().pickable)
-                            { 
+                            if (hitTile.collider.gameObject.GetComponent<TileHandler>().pickable)
+                            {
                                 isTileSelected = true;
                                 hitTile.collider.gameObject.GetComponent<TileHandler>().selected = true;
                                 tileSelected = hitTile.collider.gameObject;
                                 tileSelected.transform.rotation = Quaternion.identity;
                             }
                         }
+
                         else
                         {
                             hitTile.collider.gameObject.GetComponent<TileHandler>().hovered = true;
@@ -141,14 +150,10 @@ public class TileInventory : MonoBehaviour
 
                     if (!tilesInGrid.ContainsKey(gridCoord))
                     {
-                        tilesInGrid.Add(gridCoord, tileSelected);
+                        tileSelected.GetComponent<TileHandler>().Place();
 
                         tileSelected.transform.parent = null;
                         RemoveTile(tilesInHand.IndexOf(tileSelected));
-
-                        tileSelected.GetComponent<TileHandler>().pickable = false;
-
-                        tileSelected.GetComponent<TileHandler>().selected = false;
 
                         GameObject.Find("GameManager").GetComponent<GameManager>()._mostAccuratePath = null;
 
@@ -169,6 +174,12 @@ public class TileInventory : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.Q))
                 {
                     tileSelected.GetComponent<TileHandler>().RotateCounterClockwise();
+                }
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    tileSelected = null;
+                    isTileSelected = false;
                 }
             }
 
@@ -239,5 +250,14 @@ public class TileInventory : MonoBehaviour
         tilesInHand.RemoveAt(index);
         tileScriptsInHand.RemoveAt(index);
         handSize--;
+    }
+
+    public void SetTilePlaced(GameObject tile)
+    {
+        Vector3Int gridCoord = grid.WorldToCell(tile.transform.position);
+
+        tilesInGrid.Add(gridCoord, tile);
+
+        tile.GetComponent<TileHandler>().pickable = false;
     }
 }
