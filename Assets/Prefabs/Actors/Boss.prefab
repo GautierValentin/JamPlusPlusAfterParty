@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 680531447614017685}
   - {fileID: 6802369264116773289}
+  - {fileID: 680531447614017685}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6062016699780475835
@@ -49,6 +49,8 @@ MonoBehaviour:
   attackPower: 0
   deathEffect: {fileID: 0}
   lookDirection: 0
+  amount: 0
+  isEnemyTheBoss: 0
 --- !u!1001 &4616502060111415606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,27 +171,27 @@ PrefabInstance:
     - target: {fileID: 5249408782471155393, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.499
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5249408782471155393, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.254
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5249408782471155393, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.242
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 5249408782471155393, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5249408782471155393, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5249408782471155393, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
         type: 3}
@@ -204,7 +206,7 @@ PrefabInstance:
     - target: {fileID: 5249408782471155393, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5249408782471155393, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
         type: 3}

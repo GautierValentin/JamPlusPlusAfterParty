@@ -1,18 +1,31 @@
 using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Enemy : Character
 {
-    // Start is called before the first frame update
+    ///  ----
+    /// FIELDS
+    ///  ----
+    public int powerReward;
+    public int tileReward;
+    public bool isEnemyTheBoss;
+    [SerializeField] TextMeshProUGUI powerText;
+    [SerializeField] TextMeshProUGUI powerRewardText;
+    [SerializeField] TextMeshProUGUI tileRewardText;
+
+
+    ///  -----------
+    /// UNITY METHODS
+    ///  -----------
     public override void Start()
     {
-        GetComponent<Animator>().Play("Enemy_Idle");
-    }
+        powerText.text = attackPower.ToString();
+        powerRewardText.text = "+ " + powerReward.ToString();
+        tileRewardText.text = "+ " + tileReward.ToString();
 
-    // Update is called once per frame
-    public override void Update() 
-    {
+        GetComponent<Animator>().Play("Enemy_Idle");
     }
 }
