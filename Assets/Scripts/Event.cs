@@ -47,7 +47,6 @@ public class Event : MonoBehaviour
             {
                 player.GetComponent<Animator>().SetBool("IsDead", true);
                 gameover = true;
-               
             }
             else
             {
@@ -72,7 +71,7 @@ public class Event : MonoBehaviour
 
         if (gameover)
         {
-            //Game Over : LoadSceneSync("GameOverScene");
+            Destroy(player);
         }
         else
         {
@@ -86,6 +85,7 @@ public class Event : MonoBehaviour
             {
                 AudioScript.PlayClip(SFXClips.LOOT);
                 player.AddAttackPower(Enemy.powerReward);
+                Destroy(Enemy.gameObject);
             }
 
             if (tiles == null) return;
