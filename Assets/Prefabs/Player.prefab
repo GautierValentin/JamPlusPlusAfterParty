@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.09064613, g: 0.9150943, b: 0.111601405, a: 1}
+      maxColor: {r: 0.6886792, g: 0, b: 0.015972456, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -664,7 +664,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 15
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -4800,7 +4800,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4823,7 +4823,7 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4711208715938537054, guid: 4670736cd98b74f4f8c4bbd441a5f30d, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -4921,6 +4921,49 @@ MonoBehaviour:
   lookDirection: 0
   startingTile: {fileID: 0}
   txtComp: {fileID: 1090215439466132478}
+  chestEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6723802146110444918}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 928447424038301755}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2639504773477968375}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1001 &5437935575650787772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4932,17 +4975,17 @@ PrefabInstance:
     - target: {fileID: 2299030925203053799, guid: 7403d30ee72f69d459e73124b3003d92,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2299030925203053799, guid: 7403d30ee72f69d459e73124b3003d92,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2299030925203053799, guid: 7403d30ee72f69d459e73124b3003d92,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2299030925203053799, guid: 7403d30ee72f69d459e73124b3003d92,
         type: 3}
@@ -5004,14 +5047,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPawn
       objectReference: {fileID: 0}
+    - target: {fileID: 8058639593039579211, guid: 7403d30ee72f69d459e73124b3003d92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7403d30ee72f69d459e73124b3003d92, type: 3}
+--- !u!1 &928447424038301755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5158292399041155463, guid: 7403d30ee72f69d459e73124b3003d92,
+    type: 3}
+  m_PrefabInstance: {fileID: 5437935575650787772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2639504773477968375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8058639593039579211, guid: 7403d30ee72f69d459e73124b3003d92,
+    type: 3}
+  m_PrefabInstance: {fileID: 5437935575650787772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6093548322801483099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2299030925203053799, guid: 7403d30ee72f69d459e73124b3003d92,
+    type: 3}
+  m_PrefabInstance: {fileID: 5437935575650787772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6723802146110444918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1601262717840389322, guid: 7403d30ee72f69d459e73124b3003d92,
     type: 3}
   m_PrefabInstance: {fileID: 5437935575650787772}
   m_PrefabAsset: {fileID: 0}

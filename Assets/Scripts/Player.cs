@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Character
 {
     [SerializeField] Tile startingTile;
     [SerializeField] TextMeshProUGUI txtComp;
+
+    [SerializeField] List<UnityEvent> chestEvents;
+    int chestLvl = 0;
 
     public override void Start()
     {
@@ -18,5 +22,11 @@ public class Player : Character
     void FixedUpdate()
     {
         txtComp.text = attackPower.ToString();
+    }
+
+    public void PickChest()
+    {
+        chestEvents[chestLvl].Invoke();
+        chestLvl++;
     }
 }
