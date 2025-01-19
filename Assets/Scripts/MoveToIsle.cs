@@ -35,7 +35,8 @@ public class MoveToIsle : MonoBehaviour
             Path[0].GetComponent<Tile>()._isPOI = false;
             Path[0].GetComponent<Event>().IslandEvent(GetComponent<Player>());
         };
-        
+
+        GetComponent<Animator>().SetBool("IsMoving", true);
 
         InMove = true;
     }
@@ -56,6 +57,7 @@ public class MoveToIsle : MonoBehaviour
                     eventCaller();
                     eventCaller = null;
                     InMove = false;
+                    GetComponent<Animator>().SetBool("IsMoving", false);
                     return;
                 }
                 else

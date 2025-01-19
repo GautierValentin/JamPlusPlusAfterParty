@@ -85,7 +85,7 @@ public class Event : MonoBehaviour
             {
                 AudioScript.PlayClip(SFXClips.LOOT);
                 player.AddAttackPower(Enemy.powerReward);
-                Destroy(Enemy.gameObject);
+                
             }
 
             if (tiles == null) return;
