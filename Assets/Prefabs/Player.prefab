@@ -4970,3 +4970,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPower: 0
   deathEffect: {fileID: 2600534481318367624}
+  lookDirection: 0
+  startingTile: {fileID: 0}

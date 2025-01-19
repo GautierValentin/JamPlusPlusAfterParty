@@ -11,18 +11,27 @@ public class MoveToIsle : MonoBehaviour
     [Range(0.1f, 5f)]
     public float speed = 1.0f;
 
-    private List<Vector3> tilesPosition;
+    private List<Vector3> tilesPosition = new();
 
-    private bool InMove;
+    [NonSerialized] public bool InMove;
+
 
     public void GetPath()
     {
         List<Transform> Path = GameObject.Find("GameManager").GetComponent<GameManager>()._mostAccuratePath;
 
-        for (int i = 0; i < Path.Count; i++)
+        if(Path == null)
+        {
+            return;
+        }
+
+        for (int i = Path.Count - 1; i >= 0; --i)
         {
             tilesPosition.Add(Path[i].position);
         }
+
+        GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = Path[0];
+        Path[0].GetComponent<Tile>()._isPOI = false;
 
         InMove = true;
     }
@@ -35,7 +44,9 @@ public class MoveToIsle : MonoBehaviour
 
             GetComponent<Player>().lookDirection = LoopThroughKeyValuePairs(angle + 180);
 
-            if (transform.position.x == tilesPosition[0].x && transform.position.y == tilesPosition[0].y)
+            Vector3 tilePositionNoY = new Vector3(tilesPosition[0].x, transform.position.y, tilesPosition[0].z);
+
+            if (Vector3.Distance(transform.position, tilePositionNoY) <= 0.005f)
                 tilesPosition.RemoveAt(0);
 
             if (tilesPosition.Count == 0)
@@ -44,10 +55,9 @@ public class MoveToIsle : MonoBehaviour
                 return;
             }
 
-            Vector3 newPos = Vector3.MoveTowards(transform.position, tilesPosition[0], speed * Time.deltaTime);
-            newPos.z = transform.position.z;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (tilesPosition[0].x, transform.position.y, tilesPosition[0].z), speed * Time.deltaTime);
 
-            transform.position = newPos;
+            //GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = tilesPosition[0];
         }
     }
 

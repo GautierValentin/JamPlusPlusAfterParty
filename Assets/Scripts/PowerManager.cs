@@ -73,6 +73,7 @@ public class PowerManager : MonoBehaviour
 
             selectedTile.GetComponent<Tile>().OnSet();
 
+            GameObject.Find("Player").GetComponent<MoveToIsle>().GetPath();
         }
 
         if (Input.GetKeyDown(KeyCode.E) && currentPower == UsingPower.ROTATETILE)
