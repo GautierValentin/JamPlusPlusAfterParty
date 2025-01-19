@@ -25,6 +25,8 @@ public class Event : MonoBehaviour
 
     public void IslandEvent(Player player)
     {
+        bool gameover = false;
+        
         if (Enemy != null)
         {
             Dictionary<LinkDirection, float> dictdirections = Enemy.GetDirections();
@@ -36,19 +38,21 @@ public class Event : MonoBehaviour
                attackpower *= 2;
             }
 
+            if (Enemy.attackPower > attackpower)
+            {
+                player.GetComponent<Animator>().SetBool("IsDead", true);
+                gameover = true;
+               
+            }
+            else
+            {
+                Enemy.GetComponent<Animator>().SetBool("IsDead", true);
+            }
+
             Enemy.transform.LookAt(player.transform.position);
 
             Enemy.GetComponent<Animator>().SetTrigger("Battle");
             player.GetComponent<Animator>().SetTrigger("Battle");
-
-            if (Enemy.attackPower > attackpower)
-            {
-                player.GetComponent<Animator>().SetBool("IsDead", true);
-                //Game Over : LoadSceneAsync("GameOverScene");
-                return;
-            }
-
-            Enemy.GetComponent<Animator>().SetBool("IsDead", true);
 
             if (Enemy.isEnemyTheBoss)
             {
@@ -57,19 +61,26 @@ public class Event : MonoBehaviour
             }
         }
 
-        if(Chest != null)
-            Chest.OpenChest();
-
-        if(Enemy != null)
+        if (gameover)
         {
-            player.AddAttackPower(Enemy.powerReward);
+            //Game Over : LoadSceneSync("GameOverScene");
         }
-
-        if(tiles == null) return;
-
-        for (int i = 0; i < tiles.Count; i++)
+        else
         {
-            Inventory.AddTile(tiles[i]);
+            if (Chest != null)
+                Chest.OpenChest();
+
+            if (Enemy != null)
+            {
+                player.AddAttackPower(Enemy.powerReward);
+            }
+
+            if (tiles == null) return;
+
+            for (int i = 0; i < tiles.Count; i++)
+            {
+                Inventory.AddTile(tiles[i]);
+            }
         }
     }
 }

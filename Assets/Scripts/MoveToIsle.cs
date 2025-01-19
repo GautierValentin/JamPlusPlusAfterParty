@@ -44,14 +44,17 @@ public class MoveToIsle : MonoBehaviour
     {
         if (InMove)
         {
-            float angle = Vector3.SignedAngle(transform.position, tilesPosition[0], new Vector3(0,1,0));
-
-            GetComponent<Player>().lookDirection = LoopThroughKeyValuePairs(angle + 180);
-
             Vector3 tilePositionNoY = new Vector3(tilesPosition[0].x, transform.position.y, tilesPosition[0].z);
 
             if (Vector3.Distance(transform.position, tilePositionNoY) <= 0.005f)
+            { 
                 tilesPosition.RemoveAt(0);
+                float angle = Vector2.SignedAngle(new Vector2(tilesPosition[0].x - transform.position.x, tilesPosition[0].z - transform.position.z), new Vector2(-1, 0));
+
+                GetComponent<Player>().lookDirection = LoopThroughKeyValuePairs(angle);
+
+                transform.rotation = Quaternion.Euler(0, angle + 90, 0);
+            }
 
             if (tilesPosition.Count == 0)
             {

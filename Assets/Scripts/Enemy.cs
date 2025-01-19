@@ -27,5 +27,7 @@ public class Enemy : Character
         tileRewardText.text = "+ " + tileReward.ToString();
 
         GetComponent<Animator>().Play("Enemy_Idle");
+
+        base.Start();
     }
 }
