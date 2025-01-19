@@ -9,6 +9,7 @@ public class LevelSelectionMenu : MonoBehaviour
     /// FIELDS
     ///  ----
     private LevelLoader LevelLoader;
+    private AudioScript AudioScript;
 
 
     ///  -----------
@@ -17,6 +18,7 @@ public class LevelSelectionMenu : MonoBehaviour
     private void Awake()
     {
         LevelLoader = GameObject.Find("Level Loader").GetComponent<LevelLoader>();
+        AudioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();
     }
 
 
@@ -28,5 +30,14 @@ public class LevelSelectionMenu : MonoBehaviour
     {
         LevelLoader.SetIsSingleLevel(false);
         LevelLoader.LoadSpecificScene("MainMenu");
+    }
+    public void PlayClickSound()
+    {
+        AudioScript.PlayClip(SFXClips.BUTTONCLICK);
+    }
+
+    public void PlayHoverSound()
+    {
+        AudioScript.PlayClip(SFXClips.BUTTONHOVER);
     }
 }

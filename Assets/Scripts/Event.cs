@@ -14,6 +14,8 @@ public class Event : MonoBehaviour
     public List<GameObject> tiles = new();
     TileInventory Inventory;
 
+    private AudioScript AudioScript;
+
 
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class Event : MonoBehaviour
     private void Start()
     {
         Inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
+        AudioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();
     }
 
     public void IslandEvent(Player player)
@@ -30,9 +33,9 @@ public class Event : MonoBehaviour
         
         if (Enemy != null)
         {
-            int attackpower = player.attackPower;
+            AudioScript.PlayClip(SFXClips.ATTACK);
 
-           
+            int attackpower = player.attackPower;
 
             if (Mathf.Abs(player.transform.rotation.eulerAngles.y - Enemy.transform.rotation.eulerAngles.y) <= 1)
             {
@@ -61,9 +64,11 @@ public class Event : MonoBehaviour
             if (Enemy.isEnemyTheBoss)
             {
                 //LoadSceneAsync("WinScene");
+                AudioScript.PlayClip(SFXClips.VICTORY);
                 return;
             }
         }
+
 
         if (gameover)
         {
@@ -71,11 +76,15 @@ public class Event : MonoBehaviour
         }
         else
         {
-            if (Chest != null)
+             if(Chest != null)
+            {
+                AudioScript.PlayClip(SFXClips.LOOT);
                 Chest.OpenChest();
+            }
 
             if (Enemy != null)
             {
+                AudioScript.PlayClip(SFXClips.LOOT);
                 player.AddAttackPower(Enemy.powerReward);
             }
 

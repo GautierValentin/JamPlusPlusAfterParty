@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Audios/Musics/Chill Guy Theme.mp3.meta
 guid: e0ad95fc84440b747a01173a6f5aef57
+========
+guid: 40657f790fef96947b1d7e20d4e2cc2a
+>>>>>>>> ImplementSFX:Assets/Audios/SFX/Attack.mp3.meta
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7

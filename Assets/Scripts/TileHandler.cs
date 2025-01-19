@@ -20,6 +20,7 @@ public class TileHandler : MonoBehaviour
     public bool pickable = true;
 
     TileInventory inventory;
+    AudioScript audioScript;
 
     const float rotationSpeed = 8.0f;
 
@@ -29,6 +30,7 @@ public class TileHandler : MonoBehaviour
         selected = false;
         targetRotation = transform.localRotation;
         inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
+        audioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();
     }
 
     // Update is called once per frame
@@ -39,6 +41,8 @@ public class TileHandler : MonoBehaviour
 
     public void RotateClockwise()
     {
+        audioScript.PlayClip(SFXClips.TILEACTION);
+
         // Rotate clockwise (if 6 -> 0)
         rotationOffset++;
         rotationOffset = rotationOffset >= 6 ? 0 : rotationOffset;
@@ -50,6 +54,8 @@ public class TileHandler : MonoBehaviour
 
     public void RotateCounterClockwise()
     {
+        audioScript.PlayClip(SFXClips.TILEACTION);
+
         // Rotate counter clockwise (if -1 -> 5)
         rotationOffset--;
         rotationOffset = rotationOffset <= -1 ? 5 : rotationOffset;
@@ -63,6 +69,8 @@ public class TileHandler : MonoBehaviour
     {
         pickable = false;
         selected = false;
+
+        audioScript.PlayClip(SFXClips.TILESET);
 
         Transform model = transform.GetChild(0);
 
