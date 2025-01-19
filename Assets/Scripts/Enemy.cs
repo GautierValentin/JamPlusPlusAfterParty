@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    // Start is called before the first frame update
+    ///  ----
+    /// FIELDS
+    ///  ----
+    public int amount;
+    public bool isEnemyTheBoss;
+
+
     public override void Start()
     {
         GetComponent<Animator>().Play("Enemy_Idle");
-    }
-
-    // Update is called once per frame
-    public override void Update() 
-    {
     }
 }

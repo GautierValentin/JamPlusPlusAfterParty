@@ -12,12 +12,8 @@ public class Event : MonoBehaviour
 
     public Chest chest;
 
-    public int amount = 0;
-
-
     public List<GameObject> tiles;
 
-    public bool isEnemyTheBoss = false;
 
     [SerializeField] TextMeshProUGUI txtComp;
 
@@ -54,7 +50,7 @@ public class Event : MonoBehaviour
             }
 
             Enemy.ChangeAnimation("Enemy_Death");
-            if (isEnemyTheBoss)
+            if (Enemy.isEnemyTheBoss)
             {
                 //LoadSceneAsync("WinScene");
                 return;
@@ -64,7 +60,7 @@ public class Event : MonoBehaviour
         if(chest != null)
             chest.OpenChest();
 
-        player.AddAttackPower(amount);
+        player.AddAttackPower(Enemy.amount);
 
         for (int i = 0; i < tiles.Count; i++)
         {
