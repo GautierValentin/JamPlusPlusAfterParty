@@ -648,6 +648,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3c9040eeb39974eb8851f7e4fbd233, type: 3}
+--- !u!114 &790766481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7131801374963016505, guid: b06cd45178510774f9edb310bc850c70,
+    type: 3}
+  m_PrefabInstance: {fileID: 232614015}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c21960c2a2dff4fb4f4937ea5b0c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &815046842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
-  Chest: {fileID: 0}
+  Chest: {fileID: 790766481}
   tiles:
   - {fileID: 3441825290385638196, guid: d1ad27ebc090f1f4d8329769ebcb73be, type: 3}
   - {fileID: 3441825290385638196, guid: d1ad27ebc090f1f4d8329769ebcb73be, type: 3}
