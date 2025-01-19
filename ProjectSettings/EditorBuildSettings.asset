@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Baptiste.unity
+    path: Assets/Scenes/EntryScene.unity
     guid: 1f0991e7afd2ebd4e9220edf375793c2
   - enabled: 1
     path: Assets/Scenes/Level Scenes/REAL Level 1.unity

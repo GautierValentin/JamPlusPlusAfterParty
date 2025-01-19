@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class Event : MonoBehaviour
 {
+    private LevelLoader LevelLoader;
+
     public Enemy Enemy;
     public Chest Chest;
     public List<GameObject> tiles = new();
@@ -25,6 +27,7 @@ public class Event : MonoBehaviour
     {
         Inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
         AudioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();
+        LevelLoader = GameObject.Find("Level Loader").GetComponent<LevelLoader>();   
     }
 
     public void IslandEvent(Player player)
@@ -62,7 +65,7 @@ public class Event : MonoBehaviour
 
             if (Enemy.isEnemyTheBoss)
             {
-                //LoadSceneAsync("WinScene");
+                LevelLoader.LoadNextLevel();
                 AudioScript.PlayClip(SFXClips.VICTORY);
                 return;
             }
@@ -71,11 +74,11 @@ public class Event : MonoBehaviour
 
         if (gameover)
         {
-            Destroy(player);
+            LevelLoader.LoadSpecificScene("MainMenu");
         }
         else
         {
-             if(Chest != null)
+            if(Chest != null)
             {
                 AudioScript.PlayClip(SFXClips.LOOT);
                 Chest.OpenChest();

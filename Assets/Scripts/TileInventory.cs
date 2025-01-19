@@ -126,7 +126,7 @@ public class TileInventory : MonoBehaviour
 
                             if (hitTile.collider.gameObject.GetComponent<TileHandler>().pickable)
                             {
-                                audioScript.PlayClip(SFXClips.TILESELECT);
+                                //audioScript.PlayClip(SFXClips.TILESELECT);
 
                                 isTileSelected = true;
                                 hitTile.collider.gameObject.GetComponent<TileHandler>().selected = true;

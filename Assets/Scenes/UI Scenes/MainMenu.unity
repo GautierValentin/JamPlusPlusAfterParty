@@ -2424,7 +2424,7 @@ PrefabInstance:
     - target: {fileID: 6356970898349362663, guid: b02840816ba5b2843b4f6f9c09fdadda,
         type: 3}
       propertyPath: m_text
-      value: Level Selction
+      value: Level Selection
       objectReference: {fileID: 0}
     - target: {fileID: 7374343883521194929, guid: b02840816ba5b2843b4f6f9c09fdadda,
         type: 3}

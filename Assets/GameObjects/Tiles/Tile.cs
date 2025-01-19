@@ -194,9 +194,9 @@ public class Tile : MonoBehaviour
             {
                 // if so, you get yourself an accessible tile
                 manager._accessibleTiles.Add(transform);
-                var l = new List<Material>();
-                GameObject.Find("DBG").GetComponent<MeshRenderer>().GetMaterials(l);
-                GetComponentInChildren<MeshRenderer>().SetMaterials(l);
+                //var l = new List<Material>();
+                //GameObject.Find("DBG").GetComponent<MeshRenderer>().GetMaterials(l);
+                //GetComponentInChildren<MeshRenderer>().SetMaterials(l); 
 
                 print("ICI: "+linked.Count);
 

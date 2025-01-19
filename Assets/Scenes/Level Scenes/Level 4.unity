@@ -319,7 +319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &474999856
 Transform:
   m_ObjectHideFlags: 0
@@ -843,7 +843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &774753768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2299,7 +2299,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mainCameraTransform
       value: 
-      objectReference: {fileID: 474999856}
+      objectReference: {fileID: 0}
     - target: {fileID: 614637400704644345, guid: 63e2d1c370ca6da48bf109ac2c7729ac,
         type: 3}
       propertyPath: _startingHand.Array.size

@@ -49,8 +49,14 @@ MonoBehaviour:
   attackPower: 0
   deathEffect: {fileID: 0}
   lookDirection: 0
-  amount: 0
+  powerCanvas: {fileID: 680531447614017685}
+  powerReward: 0
+  tileReward: 0
   isEnemyTheBoss: 0
+  rewardCanvas: {fileID: 0}
+  powerText: {fileID: 7984447064407532174}
+  powerRewardText: {fileID: 0}
+  tileRewardText: {fileID: 0}
 --- !u!1001 &4616502060111415606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,3 +245,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4731065250102009428}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7984447064407532174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3415534509962935514, guid: 4150a93f0382aa142b249ae8f2a3ec6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4731065250102009428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

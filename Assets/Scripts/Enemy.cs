@@ -26,8 +26,12 @@ public class Enemy : Character
     public override void Start()
     {
         powerText.text = attackPower.ToString();
-        powerRewardText.text = "+ " + powerReward.ToString();
-        tileRewardText.text = "+ " + tileReward.ToString();
+
+        if (!isEnemyTheBoss)
+        {
+            powerRewardText.text = "+ " + powerReward.ToString();
+            tileRewardText.text = "+ " + tileReward.ToString();
+        }
 
         GetComponent<Animator>().Play("Enemy_Idle");
 
