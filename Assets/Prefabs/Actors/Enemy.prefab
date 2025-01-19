@@ -4906,9 +4906,11 @@ MonoBehaviour:
   attackPower: 0
   deathEffect: {fileID: 28750698574319044}
   lookDirection: 0
+  powerCanvas: {fileID: 357883324255475658}
   powerReward: 0
   tileReward: 0
   isEnemyTheBoss: 0
+  rewardCanvas: {fileID: 222106416245450735}
   powerText: {fileID: 7154173683276670417}
   powerRewardText: {fileID: 3647714402899973572}
   tileRewardText: {fileID: 1599434664767058504}

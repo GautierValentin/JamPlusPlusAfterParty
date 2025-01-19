@@ -7,7 +7,7 @@ public class MoveToIsle : MonoBehaviour
     [Range(0.1f, 5f)]
     public float speed = 1.0f;
 
-    private List<Vector3> tilesPosition = new();
+    private List<Transform> tilesPosition = new();
 
     [NonSerialized] public bool InMove;
 
@@ -25,7 +25,7 @@ public class MoveToIsle : MonoBehaviour
 
         for (int i = Path.Count - 1; i >= 0; --i)
         {
-            tilesPosition.Add(Path[i].position);
+            tilesPosition.Add(Path[i]);
         }
 
         GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = Path[0];
@@ -44,42 +44,33 @@ public class MoveToIsle : MonoBehaviour
     {
         if (InMove)
         {
-            Vector3 tilePositionNoY = new Vector3(tilesPosition[0].x, transform.position.y, tilesPosition[0].z);
+
+            Vector3 tilePositionNoY = new Vector3(tilesPosition[0].position.x, transform.position.y, tilesPosition[0].position.z);
 
             if (Vector3.Distance(transform.position, tilePositionNoY) <= 0.005f)
-            { 
-                tilesPosition.RemoveAt(0);
-                float angle = Vector2.SignedAngle(new Vector2(tilesPosition[0].x - transform.position.x, tilesPosition[0].z - transform.position.z), new Vector2(-1, 0));
-
-                GetComponent<Player>().lookDirection = LoopThroughKeyValuePairs(angle);
-
-                transform.rotation = Quaternion.Euler(0, angle + 90, 0);
-            }
-
-            if (tilesPosition.Count == 0)
             {
-                eventCaller();
-                eventCaller = null;
-                InMove = false;
-                return;
+                tilesPosition.RemoveAt(0);
+
+                if (tilesPosition.Count == 0)
+                {
+                    eventCaller();
+                    eventCaller = null;
+                    InMove = false;
+                    return;
+                }
+                else
+                {
+                    float angle = Vector2.SignedAngle(new Vector2(tilesPosition[0].position.x - transform.position.x, tilesPosition[0].position.z - transform.position.z), new Vector2(0, 1));
+
+                    GetComponent<Player>().transform.rotation = Quaternion.Euler(0, angle, 0);
+                    GetComponent<Player>().powerCanvas.localRotation = Quaternion.Euler(90, - transform.rotation.eulerAngles.y, 0);
+                }
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (tilesPosition[0].x, transform.position.y, tilesPosition[0].z), speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (tilesPosition[0].position.x, transform.position.y, tilesPosition[0].position.z), speed * Time.deltaTime);
 
             //GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = tilesPosition[0];
         }
-    }
-
-    public LinkDirection LoopThroughKeyValuePairs(float value)
-    {
-        foreach (var keyValuePair in GetComponent<Player>().GetDirections())
-        {
-            if (keyValuePair.Value == value)
-            {
-                return keyValuePair.Key;
-            }
-        }
-        return default;
     }
 }
 

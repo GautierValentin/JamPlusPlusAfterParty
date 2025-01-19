@@ -810,6 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb3353b8e890f6498ff12ce987a6864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseDragAndDropSensitivity: 2
 --- !u!1001 &830230170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1472,6 +1473,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 842041595734982414, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4395902271210915891, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1567,6 +1573,11 @@ PrefabInstance:
     - target: {fileID: 8538729638097557833, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716040141563989370, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2427,6 +2438,11 @@ PrefabInstance:
         type: 3}
       propertyPath: attackPower
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: lookDirection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
         type: 3}
