@@ -43,7 +43,7 @@ public class PowerManager : MonoBehaviour
 
                 if (selectedTile != null)
                 {
-                    selectedTile.transform.localScale = Vector3.one * 0.5f;
+                    selectedTile.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     selectedTile = null;
                 }
                 selectedPowerTile = false;
@@ -72,7 +72,7 @@ public class PowerManager : MonoBehaviour
                     gm._accessibleTiles.Add(gm._playerPosition);
 
                     selectedTile.GetComponent<Tile>().OnSet();
-                    selectedTile.transform.localScale = Vector3.one * 0.5f;
+                    selectedTile.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     selectedTile = null;
                 }
 
@@ -106,7 +106,7 @@ public class PowerManager : MonoBehaviour
                         if (Physics.Raycast(ray, out hitTile, 100, 1 << 6))
                         {
                             selectedTile = hitTile.collider.gameObject;
-                            selectedTile.transform.localScale = Vector3.one * 0.4f;
+                            selectedTile.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f) * 0.8f;
                         }
 
                         break;

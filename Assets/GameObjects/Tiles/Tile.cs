@@ -95,7 +95,7 @@ public class Tile : MonoBehaviour
     List<Tile> GetLinkedTiles()
     {
         List<Transform> found = new List<Transform>();
-        Collider[] hit = Physics.OverlapSphere(transform.position, 1);
+        Collider[] hit = Physics.OverlapSphere(transform.position, 0.8f);
         //GameObject.Find("DBG").transform.position = transform.position;
         //Time.timeScale = 0;
         foreach (Collider col in hit)
