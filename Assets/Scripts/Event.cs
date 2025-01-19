@@ -33,12 +33,9 @@ public class Event : MonoBehaviour
         
         if (Enemy != null)
         {
-            Dictionary<LinkDirection, float> dictdirections = Enemy.GetDirections();
-
             AudioScript.PlayClip(SFXClips.ATTACK);
-            int attackpower = player.attackPower;
 
-           
+            int attackpower = player.attackPower;
 
             if (Mathf.Abs(player.transform.rotation.eulerAngles.y - Enemy.transform.rotation.eulerAngles.y) <= 1)
             {
@@ -50,7 +47,6 @@ public class Event : MonoBehaviour
             {
                 player.GetComponent<Animator>().SetBool("IsDead", true);
                 gameover = true;
-               
             }
             else
             {
@@ -75,7 +71,7 @@ public class Event : MonoBehaviour
 
         if (gameover)
         {
-            //Game Over : LoadSceneSync("GameOverScene");
+            Destroy(player);
         }
         else
         {
@@ -89,6 +85,7 @@ public class Event : MonoBehaviour
             {
                 AudioScript.PlayClip(SFXClips.LOOT);
                 player.AddAttackPower(Enemy.powerReward);
+                
             }
 
             if (tiles == null) return;

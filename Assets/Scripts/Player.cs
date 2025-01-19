@@ -28,7 +28,8 @@ public class Player : Character
 
     public void PickChest()
     {
-        chestEvents[chestLvl].Invoke();
+        if(chestLvl < chestEvents.Count)
+            chestEvents[chestLvl].Invoke();
         chestLvl++;
     }
 }

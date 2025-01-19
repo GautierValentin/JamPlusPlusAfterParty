@@ -35,4 +35,9 @@ public class Enemy : Character
 
         powerCanvas.localRotation = Quaternion.Euler(90, -dictDirection[lookDirection], 0);
     }
+
+    public void CommitSuicide()
+    {
+        Destroy(gameObject);
+    }
 }
