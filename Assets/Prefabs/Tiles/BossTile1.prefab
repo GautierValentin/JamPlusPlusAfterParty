@@ -107,18 +107,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1278715542815377274}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3093702762024037410 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4274447418543467352, guid: 424269da79a0d184aa8a0211e927950c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1278715542815377274}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5016575750521662657 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6062016699780475835, guid: 424269da79a0d184aa8a0211e927950c,
@@ -194,6 +182,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2268142805420441900, guid: eb3c9040eeb39974eb8851f7e4fbd233,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4157173060663232509, guid: eb3c9040eeb39974eb8851f7e4fbd233,
         type: 3}
       propertyPath: m_Name
@@ -227,11 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 5016575750521662657}
-  chest: {fileID: 0}
-  amount: 0
+  Chest: {fileID: 0}
   tiles: []
-  isEnemyTheBoss: 1
-  txtComp: {fileID: 3093702762024037410}
 --- !u!4 &3915991633213822328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1016686297178933945, guid: eb3c9040eeb39974eb8851f7e4fbd233,
