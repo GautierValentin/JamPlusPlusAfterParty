@@ -34,12 +34,19 @@ public class TileInventory : MonoBehaviour
     public GameObject tile4;
     public GameObject tile5;
 
+    [SerializeField] List<GameObject> _startingHand;
+
     void Start()
     {
         handSize = 0;
 
         inventoryOffset = new Vector3(0, 0, -1.25f);
         distanceFromMainCamera = 2;
+
+        foreach (var tile in _startingHand)
+        {
+            AddTile(tile);
+        }
     }
 
     // Update is called once per frame
@@ -205,7 +212,7 @@ public class TileInventory : MonoBehaviour
 
             else
             {
-                tilesInHand[i].transform.localScale = Vector3.one * 0.5f;
+                tilesInHand[i].transform.localScale = new Vector3(.58f, .5f, .5f);
             }
 
             tileScriptsInHand[i].hovered = false;

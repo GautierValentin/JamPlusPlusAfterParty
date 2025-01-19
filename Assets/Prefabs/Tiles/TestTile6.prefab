@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5202052989688877983}
-  - component: {fileID: 965928622209413809}
-  - component: {fileID: -8625314961030410423}
-  - component: {fileID: -4289060713605650389}
+  - component: {fileID: 5907663689215529518}
+  - component: {fileID: 6184029035438401946}
+  - component: {fileID: -2315967828628104979}
   m_Layer: 6
-  m_Name: TestTile4
+  m_Name: TestTile6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,13 +29,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.58, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5289443031483315138}
+  - {fileID: 5733221889485264843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &965928622209413809
+--- !u!114 &5907663689215529518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,12 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _top: 1
   _topRight: 1
-  _botRight: 1
+  _botRight: 0
   _bot: 0
   _botLeft: 0
   _topLeft: 0
   _isPOI: 0
---- !u!114 &-8625314961030410423
+--- !u!114 &6184029035438401946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,11 +66,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff82a83f87f9b74686fc1a1efb66d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileScript: {fileID: 965928622209413809}
+  tileScript: {fileID: 5907663689215529518}
   rotationOffset: 0
   hovered: 0
   selected: 0
---- !u!135 &-4289060713605650389
+  pickable: 1
+--- !u!135 &-2315967828628104979
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +92,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &5687299850790966313
+--- !u!1001 &5195684557587623968
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -99,69 +100,69 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5202052989688877983}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 1347aa751dcedaa44a6c5fb47049868e,
+    - target: {fileID: 919132149155446097, guid: 52c49c13dce025a40a40c95fb4eba523,
         type: 3}
       propertyPath: m_Name
-      value: rockyTileAgain
+      value: rockyTile6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1347aa751dcedaa44a6c5fb47049868e, type: 3}
---- !u!4 &5289443031483315138 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 52c49c13dce025a40a40c95fb4eba523, type: 3}
+--- !u!4 &5733221889485264843 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1347aa751dcedaa44a6c5fb47049868e,
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 52c49c13dce025a40a40c95fb4eba523,
     type: 3}
-  m_PrefabInstance: {fileID: 5687299850790966313}
+  m_PrefabInstance: {fileID: 5195684557587623968}
   m_PrefabAsset: {fileID: 0}

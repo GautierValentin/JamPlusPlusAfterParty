@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : Character
 {
     [SerializeField] Tile startingTile;
+    [SerializeField] TextMeshProUGUI txtComp;
 
     public override void Start()
     {
@@ -13,9 +15,8 @@ public class Player : Character
         GameObject.Find("GameManager").GetComponent<GameManager>()._accessibleTiles.Add(startingTile.transform);
     }
 
-    // Update is called once per fram
-    public  override void Update()
+    void FixedUpdate()
     {
-
+        txtComp.text = attackPower.ToString();
     }
 }

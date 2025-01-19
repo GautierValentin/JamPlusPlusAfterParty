@@ -15,6 +15,8 @@ public class MoveToIsle : MonoBehaviour
 
     [NonSerialized] public bool InMove;
 
+    Action eventCaller;
+
 
     public void GetPath()
     {
@@ -31,7 +33,13 @@ public class MoveToIsle : MonoBehaviour
         }
 
         GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = Path[0];
-        Path[0].GetComponent<Tile>()._isPOI = false;
+
+        eventCaller = () =>
+        {
+            Path[0].GetComponent<Tile>()._isPOI = false;
+            Path[0].GetComponent<Event>().IslandEvent(GetComponent<Player>());
+        };
+        
 
         InMove = true;
     }
@@ -51,6 +59,8 @@ public class MoveToIsle : MonoBehaviour
 
             if (tilesPosition.Count == 0)
             {
+                eventCaller();
+                eventCaller = null;
                 InMove = false;
                 return;
             }

@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class Event : MonoBehaviour
@@ -11,11 +14,22 @@ public class Event : MonoBehaviour
 
     public int amount = 0;
 
-    public TileInventory inventory;
 
     public List<GameObject> tiles;
 
     public bool isEnemyTheBoss = false;
+
+    [SerializeField] TextMeshProUGUI txtComp;
+
+
+    TileInventory inventory;
+
+    private void Start()
+    {
+        inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
+        if (txtComp != null)
+            txtComp.text = Enemy.attackPower.ToString();
+    }
 
     public void IslandEvent(Player player)
     {
@@ -47,7 +61,8 @@ public class Event : MonoBehaviour
             }
         }
 
-        chest.OpenChest();
+        if(chest != null)
+            chest.OpenChest();
 
         player.AddAttackPower(amount);
 
