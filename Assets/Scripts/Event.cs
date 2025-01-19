@@ -9,26 +9,18 @@ using UnityEngine.SceneManagement;
 public class Event : MonoBehaviour
 {
     public Enemy Enemy;
-
-    public Chest chest;
-
-    public int amount = 0;
-
-
+    public Chest Chest;
     public List<GameObject> tiles;
-
-    public bool isEnemyTheBoss = false;
-
-    [SerializeField] TextMeshProUGUI txtComp;
+    TileInventory Inventory;
 
 
-    TileInventory inventory;
-
+    private void Awake()
+    {
+        if (Enemy != null)  Enemy.tileReward = tiles.Count;
+    }
     private void Start()
     {
-        inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
-        if (txtComp != null)
-            txtComp.text = Enemy.attackPower.ToString();
+        Inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
     }
 
     public void IslandEvent(Player player)
@@ -58,21 +50,21 @@ public class Event : MonoBehaviour
 
             Enemy.GetComponent<Animator>().SetBool("IsDead", true);
 
-            if (isEnemyTheBoss)
+            if (Enemy.isEnemyTheBoss)
             {
                 //LoadSceneAsync("WinScene");
                 return;
             }
         }
 
-        if(chest != null)
-            chest.OpenChest();
+        if(Chest != null)
+            Chest.OpenChest();
 
-        player.AddAttackPower(amount);
+        player.AddAttackPower(Enemy.powerReward);
 
         for (int i = 0; i < tiles.Count; i++)
         {
-            inventory.AddTile(tiles[i]);
+            Inventory.AddTile(tiles[i]);
         }
     }
 }
