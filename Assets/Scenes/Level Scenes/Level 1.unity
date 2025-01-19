@@ -145,7 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 1122431885}
   Chest: {fileID: 0}
-  tiles: []
+  tiles:
+  - {fileID: 4157173060663232509, guid: eb3c9040eeb39974eb8851f7e4fbd233, type: 3}
+  - {fileID: 3441825290385638196, guid: 199a236113f82af448482d8d501ccfc0, type: 3}
 --- !u!1001 &166941924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -865,7 +867,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
   Chest: {fileID: 166941925}
-  tiles: []
+  tiles:
+  - {fileID: 3441825290385638196, guid: 70a3809a708714248a18c9b5d9c87f18, type: 3}
 --- !u!1 &714808547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
   Chest: {fileID: 276234405}
-  tiles: []
+  tiles:
+  - {fileID: 4157173060663232509, guid: eb3c9040eeb39974eb8851f7e4fbd233, type: 3}
 --- !u!1001 &1122431884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1653,6 +1657,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: tileReward
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: attackPower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: powerReward
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

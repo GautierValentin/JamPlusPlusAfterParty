@@ -2228,6 +2228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
         type: 3}
+      propertyPath: powerReward
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
       propertyPath: rewardCanvas
       value: 
       objectReference: {fileID: 570635057}
