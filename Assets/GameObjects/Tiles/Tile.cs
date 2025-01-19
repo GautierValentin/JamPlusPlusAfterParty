@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using static LinkDirection;
 
 public class Tile : MonoBehaviour
@@ -19,6 +20,7 @@ public class Tile : MonoBehaviour
 
     [NonSerialized] public bool[] _directions = new bool[6];
     
+    [SerializeField] Transform ripples;
 
     private void Start()
     {
@@ -256,6 +258,14 @@ public class Tile : MonoBehaviour
                 List<Transform> copy = new(list);
                 tile.PathFind(copy);
             }
+        }
+    }
+
+    public void DoRipples()
+    {
+        if(ripples != null)
+        {
+            ripples.GetComponent<VisualEffect>().Play();
         }
     }
 }
