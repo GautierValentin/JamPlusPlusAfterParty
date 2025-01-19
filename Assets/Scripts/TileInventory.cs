@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,6 +21,8 @@ public class TileInventory : MonoBehaviour
     List<GameObject> tilesInHand = new();
     int handSize;
 
+    private Vector3Int lastGridPos;
+
     [SerializeField]
     Grid grid;
 
@@ -33,6 +36,8 @@ public class TileInventory : MonoBehaviour
     public GameObject tile3;
     public GameObject tile4;
     public GameObject tile5;
+
+    AudioScript audioScript;
 
     [SerializeField] List<GameObject> _startingHand;
 
@@ -55,6 +60,8 @@ public class TileInventory : MonoBehaviour
 
             baseTile.Place();
         }
+
+        audioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();
     }
 
     // Update is called once per frame
@@ -116,6 +123,8 @@ public class TileInventory : MonoBehaviour
 
                             if (hitTile.collider.gameObject.GetComponent<TileHandler>().pickable)
                             {
+                                audioScript.PlayClip(SFXClips.TILESELECT);
+
                                 isTileSelected = true;
                                 hitTile.collider.gameObject.GetComponent<TileHandler>().selected = true;
                                 tileSelected = hitTile.collider.gameObject;
@@ -139,6 +148,13 @@ public class TileInventory : MonoBehaviour
                 if (Physics.Raycast(ray, out hitBoard, 100, 1 << 7))
                 {
                     Vector3Int gridCoord = grid.WorldToCell(hitBoard.point);
+
+                    if(gridCoord != lastGridPos)
+                    {
+                        audioScript.PlayClip(SFXClips.TILEACTION);
+                    }
+
+                    lastGridPos = gridCoord;
 
                     tileSelected.transform.position = grid.CellToWorld(gridCoord);
                 }
