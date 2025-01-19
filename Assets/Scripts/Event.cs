@@ -11,7 +11,7 @@ public class Event : MonoBehaviour
 {
     public Enemy Enemy;
     public Chest Chest;
-    public List<GameObject> tiles;
+    public List<GameObject> tiles = new();
     TileInventory Inventory;
 
 
@@ -32,9 +32,7 @@ public class Event : MonoBehaviour
         {
             int attackpower = player.attackPower;
 
-            Enemy.transform.rotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y + 180, 0);
-            Enemy.powerCanvas.localRotation = Quaternion.Euler(90, - Enemy.transform.rotation.eulerAngles.y, 0);
-            Enemy.rewardCanvas.localRotation = Quaternion.Euler(90, -Enemy.transform.rotation.eulerAngles.y, 0);
+           
 
             if (Mathf.Abs(player.transform.rotation.eulerAngles.y - Enemy.transform.rotation.eulerAngles.y) <= 1)
             {
@@ -52,6 +50,10 @@ public class Event : MonoBehaviour
             {
                 Enemy.GetComponent<Animator>().SetBool("IsDead", true);
             }
+
+            Enemy.transform.rotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y + 180, 0);
+            Enemy.powerCanvas.localRotation = Quaternion.Euler(90, -Enemy.transform.rotation.eulerAngles.y, 0);
+            Enemy.rewardCanvas.localRotation = Quaternion.Euler(90, -Enemy.transform.rotation.eulerAngles.y, 0);
 
             Enemy.GetComponent<Animator>().SetTrigger("Battle");
             player.GetComponent<Animator>().SetTrigger("Battle");

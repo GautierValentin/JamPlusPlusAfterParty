@@ -1046,6 +1046,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseDragAndDropSensitivity: 2
+--- !u!4 &830045316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 357883324255475658, guid: 17468286ddc994a4686a2819edc769cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1971596020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &830230170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2767,6 +2773,16 @@ PrefabInstance:
       propertyPath: attackPower
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: powerCanvas
+      value: 
+      objectReference: {fileID: 830045316}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: rewardCanvas
+      value: 
+      objectReference: {fileID: 1146575117}
     - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
         type: 3}
       propertyPath: lookDirection
