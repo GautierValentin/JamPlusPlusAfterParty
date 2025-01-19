@@ -73,16 +73,10 @@ public class LevelLoader : MonoBehaviour
     ///  -------------
     void Update()
     {
-        // C key
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            LoadNextLevel();
-        }
-
-        // Space Bar
+        // Debug to next level
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            LoadSpecificScene("Level 1");
+            LoadNextLevel();
         }
     }
 }

@@ -1,24 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class Event : MonoBehaviour
 {
     public Enemy Enemy;
-
-    public Chest chest;
-
-    public int amount = 0;
-
-    public TileInventory inventory;
-
+    public Chest Chest;
     public List<GameObject> tiles;
+    TileInventory Inventory;
 
-    public bool isEnemyTheBoss = false;
+
+    private void Awake()
+    {
+        if (Enemy != null)  Enemy.tileReward = tiles.Count;
+    }
+    private void Start()
+    {
+        Inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
+    }
 
     public void IslandEvent(Player player)
     {
+        bool gameover = false;
+        
         if (Enemy != null)
         {
             Dictionary<LinkDirection, float> dictdirections = Enemy.GetDirections();
@@ -30,30 +38,49 @@ public class Event : MonoBehaviour
                attackpower *= 2;
             }
 
-            Enemy.transform.LookAt(player.transform.position);
-
             if (Enemy.attackPower > attackpower)
             {
-                player.ChangeAnimation("Player_Death");
-                //Game Over : LoadSceneAsync("GameOverScene");
-                return;
+                player.GetComponent<Animator>().SetBool("IsDead", true);
+                gameover = true;
+               
+            }
+            else
+            {
+                Enemy.GetComponent<Animator>().SetBool("IsDead", true);
             }
 
-            Enemy.ChangeAnimation("Enemy_Death");
-            if (isEnemyTheBoss)
+            Enemy.transform.LookAt(player.transform.position);
+
+            Enemy.GetComponent<Animator>().SetTrigger("Battle");
+            player.GetComponent<Animator>().SetTrigger("Battle");
+
+            if (Enemy.isEnemyTheBoss)
             {
                 //LoadSceneAsync("WinScene");
                 return;
             }
         }
 
-        chest.OpenChest();
-
-        player.AddAttackPower(amount);
-
-        for (int i = 0; i < tiles.Count; i++)
+        if (gameover)
         {
-            inventory.AddTile(tiles[i]);
+            //Game Over : LoadSceneSync("GameOverScene");
+        }
+        else
+        {
+            if (Chest != null)
+                Chest.OpenChest();
+
+            if (Enemy != null)
+            {
+                player.AddAttackPower(Enemy.powerReward);
+            }
+
+            if (tiles == null) return;
+
+            for (int i = 0; i < tiles.Count; i++)
+            {
+                Inventory.AddTile(tiles[i]);
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -8,6 +8,12 @@ public class SettingsMenu : MonoBehaviour
     /// FIELDS
     ///  ----
     private LevelLoader LevelLoader;
+
+    [SerializeField] AudioMixer AudioMixer;
+
+    [SerializeField] Slider GlobalVolumeSlider;
+    [SerializeField] Slider MusicVolumeSlider;
+    [SerializeField] Slider SFXVolumeSlider;
 
 
     ///  -----------
@@ -27,4 +33,21 @@ public class SettingsMenu : MonoBehaviour
     {
         LevelLoader.UnloadSpecificScene("SettingsMenu");
     }
+
+    // Handles updates of the Global Volume setting
+    public void UpdateGlobalVolume()
+    {
+        AudioMixer.SetFloat("GlobalVolume", Mathf.Log10(GlobalVolumeSlider.value) * 20f);
+    }
+    // Handles updates of the Music Volume setting
+    public void UpdateMusicVolume()
+    {
+        AudioMixer.SetFloat("MusicVolume", Mathf.Log10(MusicVolumeSlider.value) * 20f);
+    }
+    // Handles updates of the SFX Volume setting
+    public void UpdateSFXVolume()
+    {
+        AudioMixer.SetFloat("SFXVolume", Mathf.Log10(SFXVolumeSlider.value) * 20f);
+    }
+
 }

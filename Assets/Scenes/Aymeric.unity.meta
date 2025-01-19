@@ -1,5 +1,10 @@
 fileFormatVersion: 2
-guid: 0b3f6bbce4acaf34fa53bee2bde5b4a0
+<<<<<<<< HEAD:Assets/Scenes/Aymeric.unity.meta
+guid: 1b8a07e66e4a7fc43b1abed99f6f1733
+========
+guid: 69ca9cad804e4b34ab9b152848782934
+folderAsset: yes
+>>>>>>>> UI_Galore:Assets/Audios.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
