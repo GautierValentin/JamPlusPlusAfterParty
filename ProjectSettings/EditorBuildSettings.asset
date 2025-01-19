@@ -9,28 +9,25 @@ EditorBuildSettings:
     path: Assets/Scenes/EntryScene.unity
     guid: 1f0991e7afd2ebd4e9220edf375793c2
   - enabled: 1
-    path: Assets/Scenes/Level Scenes/REAL Level 1.unity
-    guid: fcff39eec64b65743b0fcb0c61ff3d5b
-  - enabled: 1
-    path: Assets/Scenes/Level Scenes/Level 1.unity
-    guid: 2c3c657e6b4c8e240aebd8160f3f40d5
-  - enabled: 1
-    path: Assets/Scenes/Level Scenes/Level 2.unity
-    guid: 7e72893f7bb85ca4b983b2c7ab2336e6
-  - enabled: 1
-    path: Assets/Scenes/Level Scenes/Level 3.unity
-    guid: 7e9349bad23984347a446ba38575ce58
-  - enabled: 1
-    path: Assets/Scenes/Level Scenes/Level 4.unity
-    guid: fa39b93206c63624ea63f201ac642071
-  - enabled: 1
     path: Assets/Scenes/UI Scenes/MainMenu.unity
-    guid: ffcd71757adb2a74dbf0623f68540a79
+    guid: a5a27e5fe662af74b83171b72b468630
   - enabled: 1
     path: Assets/Scenes/UI Scenes/SettingsMenu.unity
-    guid: 21ac710c6989dc9479f57510e5d3969b
+    guid: 85af251aea111e346889fe8cc3252ce5
   - enabled: 1
     path: Assets/Scenes/UI Scenes/LevelSelectionMenu.unity
-    guid: fee40a23ff997d94fbfe41248e2cff48
+    guid: 7469f387774879b46913d3e603f37bc5
+  - enabled: 1
+    path: Assets/Scenes/Level Scenes/Level 1.unity
+    guid: a833686de7f89444090d71df77d9299d
+  - enabled: 1
+    path: Assets/Scenes/Level Scenes/Level 2.unity
+    guid: 514114b8ee458734eb2e79d51e32c2ef
+  - enabled: 1
+    path: Assets/Scenes/Level Scenes/Level 3.unity
+    guid: fcff39eec64b65743b0fcb0c61ff3d5b
+  - enabled: 1
+    path: Assets/Scenes/Level Scenes/Level 4.unity
+    guid: 7e72893f7bb85ca4b983b2c7ab2336e6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
