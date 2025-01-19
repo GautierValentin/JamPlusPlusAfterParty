@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class TileHandler : MonoBehaviour
@@ -18,6 +19,8 @@ public class TileHandler : MonoBehaviour
 
     public bool pickable = true;
 
+    TileInventory inventory;
+
     const float rotationSpeed = 8.0f;
 
     void Start()
@@ -25,6 +28,7 @@ public class TileHandler : MonoBehaviour
         hovered = false;
         selected = false;
         targetRotation = transform.localRotation;
+        inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
     }
 
     // Update is called once per frame
@@ -53,5 +57,31 @@ public class TileHandler : MonoBehaviour
         targetRotation *= Quaternion.Euler(Vector3.up * -60);
 
         tileScript.RotateLeft();
+    }
+
+    public void Place()
+    {
+        pickable = false;
+        selected = false;
+
+        Transform model = transform.GetChild(0);
+
+        // Single model
+        if (model.GetComponent<MeshRenderer>() != null)
+        {
+            model.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.On;
+        }
+
+        // Multiple models
+        else
+        {
+            int modelChildCount = model.transform.childCount;
+            for (int i = 0; i < modelChildCount; i++)
+            {
+                model.transform.GetChild(i).GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.On;     
+            }
+        }
+
+        inventory.SetTilePlaced(gameObject);
     }
 }
