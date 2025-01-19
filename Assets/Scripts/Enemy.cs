@@ -31,9 +31,9 @@ public class Enemy : Character
         {
             powerRewardText.text = "+ " + powerReward.ToString();
             tileRewardText.text = "+ " + tileReward.ToString();
+            GetComponent<Animator>().Play("Enemy_Idle");
         }
 
-        GetComponent<Animator>().Play("Enemy_Idle");
 
         base.Start();
 
