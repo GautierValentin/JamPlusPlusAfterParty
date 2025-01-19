@@ -13,7 +13,7 @@ public class MoveToIsle : MonoBehaviour
 
     private List<Vector3> tilesPosition = new();
 
-    private bool InMove;
+    [NonSerialized] public bool InMove;
 
 
     public void GetPath()
@@ -29,6 +29,9 @@ public class MoveToIsle : MonoBehaviour
         {
             tilesPosition.Add(Path[i].position);
         }
+
+        GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = Path[0];
+        Path[0].GetComponent<Tile>()._isPOI = false;
 
         InMove = true;
     }

@@ -15,7 +15,7 @@ public class Tile : MonoBehaviour
     [SerializeField] bool _topLeft;
 
     [Header("It is a point of interrest if it contains something (loot / monster)")]
-    [SerializeField] bool _isPOI;
+    [SerializeField] public bool _isPOI;
 
     [NonSerialized] public bool[] _directions = new bool[6];
     
@@ -96,6 +96,8 @@ public class Tile : MonoBehaviour
     {
         List<Transform> found = new List<Transform>();
         Collider[] hit = Physics.OverlapSphere(transform.position, 1);
+        //GameObject.Find("DBG").transform.position = transform.position;
+        //Time.timeScale = 0;
         foreach (Collider col in hit)
         {
             if (col.TryGetComponent<Tile>(out _))
@@ -117,7 +119,7 @@ public class Tile : MonoBehaviour
 
         foreach (Transform target in found)
         {
-            if (transform.position.z < target.position.z && transform.position.x < target.position.x)
+            if (transform.position.z < target.position.z && transform.position.x > target.position.x)
             {
                 orderedFound[1] = target.GetComponent<Tile>();
                 break;
@@ -126,7 +128,7 @@ public class Tile : MonoBehaviour
 
         foreach (Transform target in found)
         {
-            if (transform.position.z < target.position.z && transform.position.x > target.position.x)
+            if (transform.position.z < target.position.z && transform.position.x < target.position.x)
             {
                 orderedFound[2] = target.GetComponent<Tile>();
                 break;
@@ -144,7 +146,7 @@ public class Tile : MonoBehaviour
 
         foreach (Transform target in found)
         {
-            if (transform.position.z > target.position.z && transform.position.x > target.position.x)
+            if (transform.position.z > target.position.z && transform.position.x < target.position.x)
             {
                 orderedFound[4] = target.GetComponent<Tile>();
                 break;
@@ -153,7 +155,7 @@ public class Tile : MonoBehaviour
 
         foreach (Transform target in found)
         {
-            if (transform.position.z > target.position.z && transform.position.x < transform.position.x)
+            if (transform.position.z > target.position.z && transform.position.x > target.position.x)
             {
                 orderedFound[5] = target.GetComponent<Tile>();
                 break;
@@ -161,7 +163,7 @@ public class Tile : MonoBehaviour
         }
 
         List<Tile> linked = new List<Tile>();
-        for(int i=0; i< _directions.Length -1; i++)
+        for(int i=0; i< _directions.Length; i++)
         {
             if (orderedFound[i] == null) continue;
             if (_directions[i] && orderedFound[i]._directions[(i + 3) % 6])
@@ -176,15 +178,30 @@ public class Tile : MonoBehaviour
     {
         GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
+        if (manager._accessibleTiles.Contains(transform))
+            return;
+
         List<Tile> linked = GetLinkedTiles();
 
         foreach (Tile tile in linked)
         {
-            // check if youi are adjacent to an accessible cell
+            // check if you are adjacent to an accessible cell
             if(manager._accessibleTiles.Contains(tile.transform))
             {
                 // if so, you get yourself an accessible tile
                 manager._accessibleTiles.Add(transform);
+
+                print(linked.Count);
+
+                // then you check for setting your niehbour accessible
+                foreach (Tile neighbour in linked)
+                {
+                    if (false == manager._accessibleTiles.Contains(neighbour.transform))
+                    {
+                        neighbour.OnSet();
+                    }
+                }
+
                 if (_isPOI)
                 {
                     manager._mostAccuratePath = new();
@@ -192,20 +209,9 @@ public class Tile : MonoBehaviour
                     Debug.Log("Hey there's an accessible point of interest");
 
                     List<Transform> arg = new();
-                    arg.Add(tile.transform);
+                    arg.Add(transform);
                     PathFind(arg);
                     
-                }
-                else
-                {
-                    // if you're not a POI, then you check for setting your niehbour accessible
-                    foreach(Tile neighbour in linked)
-                    {
-                        if(false == manager._accessibleTiles.Contains(neighbour.transform))
-                        {
-                            neighbour.OnSet();
-                        }
-                    }
                 }
                 break;
             }
@@ -220,7 +226,7 @@ public class Tile : MonoBehaviour
 
         if (transform == manager._playerPosition)
         {
-            print("GGGG");
+            print("a path ended up finding the player");
             
             if(manager._mostAccuratePath.Count >= list.Count || manager._mostAccuratePath.Count == 0)
             {
@@ -232,11 +238,18 @@ public class Tile : MonoBehaviour
 
         List<Tile> linked = GetLinkedTiles();
 
+            //bool already = false;
         foreach (Tile tile in linked)
         {
             if(false == list.Contains(tile.transform))
             {
-                tile.PathFind(list);
+                //if (already)
+                //{
+                //    print("a tile created a branche");
+                //}
+                //already = true;
+                List<Transform> copy = new(list);
+                tile.PathFind(copy);
             }
         }
     }

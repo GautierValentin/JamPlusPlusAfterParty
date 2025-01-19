@@ -81,7 +81,7 @@ public class TileInventory : MonoBehaviour
         }
         // Debug End //
 
-        if(canSelect)
+        if(canSelect && false == GameObject.Find("Player").GetComponent<MoveToIsle>().InMove)
         {
             if (!isTileSelected)
             {
