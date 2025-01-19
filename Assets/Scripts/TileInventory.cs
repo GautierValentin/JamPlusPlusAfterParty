@@ -34,6 +34,8 @@ public class TileInventory : MonoBehaviour
     public GameObject tile4;
     public GameObject tile5;
 
+    AudioScript audioScript;
+
     [SerializeField] List<GameObject> _startingHand;
 
     void Start()
@@ -55,6 +57,8 @@ public class TileInventory : MonoBehaviour
 
             baseTile.Place();
         }
+
+        audioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();
     }
 
     // Update is called once per frame
@@ -116,6 +120,8 @@ public class TileInventory : MonoBehaviour
 
                             if (hitTile.collider.gameObject.GetComponent<TileHandler>().pickable)
                             {
+                                audioScript.PlayClip(SFXClips.TILESELECT);
+
                                 isTileSelected = true;
                                 hitTile.collider.gameObject.GetComponent<TileHandler>().selected = true;
                                 tileSelected = hitTile.collider.gameObject;

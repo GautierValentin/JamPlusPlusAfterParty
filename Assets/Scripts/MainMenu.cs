@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     /// FIELDS
     ///  ----
     private LevelLoader LevelLoader;
+    private AudioScript AudioScript;
 
 
     ///  -----------
@@ -17,6 +18,7 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         LevelLoader = GameObject.Find("Level Loader").GetComponent<LevelLoader>();
+        AudioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();
     }
 
 
@@ -49,5 +51,15 @@ public class MainMenu : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
         Application.Quit();
+    }
+
+    public void PlayClickSound()
+    {
+        AudioScript.PlayClip(SFXClips.BUTTONCLICK);
+    }
+
+    public void PlayHoverSound()
+    {
+        AudioScript.PlayClip(SFXClips.BUTTONHOVER);
     }
 }
