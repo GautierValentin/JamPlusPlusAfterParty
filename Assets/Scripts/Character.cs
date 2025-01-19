@@ -11,19 +11,22 @@ public class Character : MonoBehaviour
 
     public LinkDirection lookDirection = LinkDirection.TOP;
 
-    static private Dictionary<LinkDirection, float> dictDirection = new Dictionary<LinkDirection, float>() {
+    public Transform powerCanvas;
+
+    static protected Dictionary<LinkDirection, float> dictDirection = new Dictionary<LinkDirection, float>() {
         {LinkDirection.TOP, 0},
-        {LinkDirection.TOPRIGHT, 60},
-        {LinkDirection.BOTRIGHT, 120},
-        {LinkDirection.BOT, 180},
-        {LinkDirection.BOTLEFT, -120},
-        {LinkDirection.TOPLEFT, -60},
+        {LinkDirection.TOPRIGHT, -33.69f},
+        {LinkDirection.BOTRIGHT, 33.69f},
+        {LinkDirection.BOT, 90.15f},
+        {LinkDirection.BOTLEFT, 146.068f},
+        {LinkDirection.TOPLEFT, -146.31f},
     };
 
     //Start is called once before the first frame
     virtual public void Start()
     {
         transform.rotation = Quaternion.Euler(0, dictDirection[lookDirection], 0);
+        powerCanvas.localRotation = Quaternion.Euler(90, - dictDirection[lookDirection], 0);
     }
 
     // Update is called once per frame

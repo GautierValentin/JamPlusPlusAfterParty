@@ -243,7 +243,7 @@ public class TileInventory : MonoBehaviour
 
             else
             {
-                tilesInHand[i].transform.localScale = new Vector3(.58f, .5f, .5f);
+                tilesInHand[i].transform.localScale = new Vector3(.5f, .5f, .5f);
             }
 
             tileScriptsInHand[i].hovered = false;
