@@ -10,6 +10,7 @@ public class Enemy : Character
     /// FIELDS
     ///  ----
     public int powerReward;
+    public int tileReward;
     public bool isEnemyTheBoss;
     [SerializeField] TextMeshProUGUI powerText;
     [SerializeField] TextMeshProUGUI powerRewardText;
@@ -22,8 +23,8 @@ public class Enemy : Character
     public override void Start()
     {
         powerText.text = attackPower.ToString();
-        powerRewardText.text = powerReward.ToString();
-        tileRewardText.text = "?";
+        powerRewardText.text = "+ " + powerReward.ToString();
+        tileRewardText.text = "+ " + tileReward.ToString();
 
         GetComponent<Animator>().Play("Enemy_Idle");
     }

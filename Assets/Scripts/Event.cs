@@ -11,14 +11,16 @@ public class Event : MonoBehaviour
     public Enemy Enemy;
     public Chest Chest;
     public List<GameObject> tiles;
-    [SerializeField] TextMeshProUGUI txtComp;
     TileInventory Inventory;
 
+
+    private void Awake()
+    {
+        if (Enemy != null)  Enemy.tileReward = tiles.Count;
+    }
     private void Start()
     {
         Inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
-        if (txtComp != null)
-            txtComp.text = Enemy.attackPower.ToString();
     }
 
     public void IslandEvent(Player player)
