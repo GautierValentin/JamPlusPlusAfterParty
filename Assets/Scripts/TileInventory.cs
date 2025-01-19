@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -19,6 +20,8 @@ public class TileInventory : MonoBehaviour
     List<TileHandler> tileScriptsInHand = new();
     List<GameObject> tilesInHand = new();
     int handSize;
+
+    private Vector3Int lastGridPos;
 
     [SerializeField]
     Grid grid;
@@ -145,6 +148,13 @@ public class TileInventory : MonoBehaviour
                 if (Physics.Raycast(ray, out hitBoard, 100, 1 << 7))
                 {
                     Vector3Int gridCoord = grid.WorldToCell(hitBoard.point);
+
+                    if(gridCoord != lastGridPos)
+                    {
+                        audioScript.PlayClip(SFXClips.TILEACTION);
+                    }
+
+                    lastGridPos = gridCoord;
 
                     tileSelected.transform.position = grid.CellToWorld(gridCoord);
                 }

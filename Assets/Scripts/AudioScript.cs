@@ -25,8 +25,10 @@ public class AudioScript : MonoBehaviour
         audioSources = GetComponents<AudioSource>();
     }
 
-    public void PlayClip(SFXClips clip)
+    public void PlayClip(SFXClips clip, float _pitch = 1)
     {
+        audioSources[(int)clip].pitch = _pitch;
+
         audioSources[(int)clip].Play();
     }
 }
