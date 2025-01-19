@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -43,6 +44,9 @@ public class TileInventory : MonoBehaviour
 
     void Start()
     {
+        // Retrieves the Camera
+        if (mainCameraTransform == null)  mainCameraTransform = GameObject.Find("Persistent Game Objects").GetComponentInChildren<Camera>().transform;
+
         handSize = 0;
 
         inventoryOffset = new Vector3(0, 0, -1.25f);
@@ -64,7 +68,6 @@ public class TileInventory : MonoBehaviour
         audioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 resultingPosition = mainCameraTransform.position + mainCameraTransform.forward * distanceFromMainCamera;

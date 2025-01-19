@@ -25,6 +25,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] int curLevel;
     [SerializeField] int levelCount = 10;
     [SerializeField] bool isSingleLevel = false;
+    [SerializeField] GameObject Camera;
 
 
     ///  -----------
@@ -40,11 +41,17 @@ public class LevelLoader : MonoBehaviour
     public void LoadSpecificScene(string ARGsceneName, bool ARGshouldLoadAdditively = false)
     {
         SceneManager.LoadScene(ARGsceneName, ARGshouldLoadAdditively ? LoadSceneMode.Additive : LoadSceneMode.Single);
+
+        // Re-positions the Camera to be front-facing
+        Camera.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
     public void LoadSpecificLevel(int ARGlevelId)
     {
         SceneManager.LoadScene("Level " + ARGlevelId, LoadSceneMode.Single);
         curLevel = ARGlevelId;
+
+        // Re-positions the Camera to be top-down
+        Camera.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
     }
     public void LoadNextLevel()
     {

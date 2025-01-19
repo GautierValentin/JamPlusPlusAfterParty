@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Baptiste.unity
     guid: 1f0991e7afd2ebd4e9220edf375793c2
   - enabled: 1
-    path: Assets/Scenes/Level Scenes/Tutoriel 1.unity
+    path: Assets/Scenes/Level Scenes/Level 1.unity
     guid: fcff39eec64b65743b0fcb0c61ff3d5b
   - enabled: 1
-    path: Assets/Scenes/Level Scenes/Tutoriel 2.unity
+    path: Assets/Scenes/Level Scenes/Level 2.unity
     guid: 7e72893f7bb85ca4b983b2c7ab2336e6
+  - enabled: 1
+    path: Assets/Scenes/Level Scenes/Level 3.unity
+    guid: 7e9349bad23984347a446ba38575ce58
+  - enabled: 1
+    path: Assets/Scenes/Level Scenes/Level 4.unity
+    guid: fa39b93206c63624ea63f201ac642071
   - enabled: 1
     path: Assets/Scenes/UI Scenes/MainMenu.unity
     guid: ffcd71757adb2a74dbf0623f68540a79
