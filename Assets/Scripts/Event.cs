@@ -46,14 +46,18 @@ public class Event : MonoBehaviour
 
             Enemy.transform.LookAt(player.transform.position);
 
+            Enemy.GetComponent<Animator>().SetTrigger("Battle");
+            player.GetComponent<Animator>().SetTrigger("Battle");
+
             if (Enemy.attackPower > attackpower)
             {
-                player.ChangeAnimation("Player_Death");
+                player.GetComponent<Animator>().SetBool("IsDead", true);
                 //Game Over : LoadSceneAsync("GameOverScene");
                 return;
             }
 
-            Enemy.ChangeAnimation("Enemy_Death");
+            Enemy.GetComponent<Animator>().SetBool("IsDead", true);
+
             if (isEnemyTheBoss)
             {
                 //LoadSceneAsync("WinScene");
