@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using static LinkDirection;
 
 public class Tile : MonoBehaviour
@@ -17,8 +18,9 @@ public class Tile : MonoBehaviour
     [Header("It is a point of interrest if it contains something (loot / monster)")]
     [SerializeField] public bool _isPOI;
 
-    public bool[] _directions = new bool[6];
+    [NonSerialized] public bool[] _directions = new bool[6];
     
+    [SerializeField] Transform ripples;
 
     private void Start()
     {
@@ -107,14 +109,12 @@ public class Tile : MonoBehaviour
         }
 
         print("foun a total of"+ found.Count);
-        foreach (Collider col in hit)
-            print(col.name);
 
         Tile[] orderedFound = new Tile[6];
         
         foreach(Transform target in found)
         {
-            if(Mathf.Approximately(transform.position.z, target.position.z) && transform.position.x < target.position.x)
+            if(Mathf.Approximately(transform.position.z, target.position.z) && transform.position.x > target.position.x)
             {
                 orderedFound[0] = target.GetComponent<Tile>();
                 break;
@@ -141,10 +141,9 @@ public class Tile : MonoBehaviour
 
         foreach (Transform target in found)
         {
-            if (Mathf.Approximately(transform.position.z, target.position.z) && transform.position.x > target.position.x)
+            if (Mathf.Approximately(transform.position.z, target.position.z) && transform.position.x < target.position.x)
             {
                 orderedFound[3] = target.GetComponent<Tile>();
-                print("theorie2??");
                 break;
             }
         }
@@ -167,7 +166,7 @@ public class Tile : MonoBehaviour
             }
         }
 
-        List<Tile> linked = new List<Tile>();
+         List<Tile> linked = new List<Tile>();
         for(int i=0; i< _directions.Length; i++)
         {
             if (orderedFound[i] == null) continue;
@@ -195,8 +194,11 @@ public class Tile : MonoBehaviour
             {
                 // if so, you get yourself an accessible tile
                 manager._accessibleTiles.Add(transform);
+                var l = new List<Material>();
+                GameObject.Find("DBG").GetComponent<MeshRenderer>().GetMaterials(l);
+                GetComponentInChildren<MeshRenderer>().SetMaterials(l);
 
-                print(linked.Count);
+                print("ICI: "+linked.Count);
 
                 // then you check for setting your niehbour accessible
                 foreach (Tile neighbour in linked)
@@ -256,6 +258,14 @@ public class Tile : MonoBehaviour
                 List<Transform> copy = new(list);
                 tile.PathFind(copy);
             }
+        }
+    }
+
+    public void DoRipples()
+    {
+        if(ripples != null)
+        {
+            ripples.GetComponent<VisualEffect>().Play();
         }
     }
 }

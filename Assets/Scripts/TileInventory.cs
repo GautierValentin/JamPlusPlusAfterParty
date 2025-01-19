@@ -174,6 +174,7 @@ public class TileInventory : MonoBehaviour
                         GameObject.Find("GameManager").GetComponent<GameManager>()._mostAccuratePath = null;
 
                         tileSelected.GetComponent<Tile>().OnSet();
+                        tileSelected.GetComponent<Tile>().DoRipples();
 
                         GameObject.Find("Player").GetComponent<MoveToIsle>().GetPath();
 
