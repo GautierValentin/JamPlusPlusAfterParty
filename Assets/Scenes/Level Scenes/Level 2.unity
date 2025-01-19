@@ -539,6 +539,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: tileReward
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: attackPower
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: powerReward
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -834,7 +849,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
   Chest: {fileID: 1802356030}
-  tiles: []
+  tiles:
+  - {fileID: 3441825290385638196, guid: d1ad27ebc090f1f4d8329769ebcb73be, type: 3}
 --- !u!1 &547519162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1251,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
         type: 3}
+      propertyPath: tileReward
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: attackPower
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: powerReward
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
       propertyPath: lookDirection
       value: 0
       objectReference: {fileID: 0}
@@ -1312,6 +1343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062016699780475835, guid: 424269da79a0d184aa8a0211e927950c,
+        type: 3}
+      propertyPath: attackPower
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6062016699780475835, guid: 424269da79a0d184aa8a0211e927950c,
         type: 3}
@@ -1523,7 +1559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
   Chest: {fileID: 1075553920}
-  tiles: []
+  tiles:
+  - {fileID: 3441825290385638196, guid: 0ab6fb535f6724d43a04ba7ba33d1663, type: 3}
 --- !u!1001 &892576853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1825,7 +1862,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 706405635}
   Chest: {fileID: 0}
-  tiles: []
+  tiles:
+  - {fileID: 4157173060663232509, guid: eb3c9040eeb39974eb8851f7e4fbd233, type: 3}
 --- !u!1001 &976851355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2074,6 +2112,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: tileReward
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: attackPower
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414753115355613725, guid: 17468286ddc994a4686a2819edc769cd,
+        type: 3}
+      propertyPath: powerReward
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2564,7 +2617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 1015026337}
   Chest: {fileID: 0}
-  tiles: []
+  tiles:
+  - {fileID: 4157173060663232509, guid: eb3c9040eeb39974eb8851f7e4fbd233, type: 3}
 --- !u!1 &1333384474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,7 +3233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
   Chest: {fileID: 976851356}
-  tiles: []
+  tiles:
+  - {fileID: 3441825290385638196, guid: 70a3809a708714248a18c9b5d9c87f18, type: 3}
 --- !u!114 &1679306521 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6538855165723933224, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
@@ -3295,7 +3350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
   Chest: {fileID: 555101103}
-  tiles: []
+  tiles:
+  - {fileID: 4157173060663232509, guid: eb3c9040eeb39974eb8851f7e4fbd233, type: 3}
+  - {fileID: 3441825290385638196, guid: d1ad27ebc090f1f4d8329769ebcb73be, type: 3}
 --- !u!1001 &1798660138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3604,7 +3661,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 268462688}
   Chest: {fileID: 0}
-  tiles: []
+  tiles:
+  - {fileID: 3441825290385638196, guid: 199a236113f82af448482d8d501ccfc0, type: 3}
+  - {fileID: 3441825290385638196, guid: d1ad27ebc090f1f4d8329769ebcb73be, type: 3}
 --- !u!1001 &1802356029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4155,7 +4214,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
   Chest: {fileID: 791915071}
-  tiles: []
+  tiles:
+  - {fileID: 4157173060663232509, guid: eb3c9040eeb39974eb8851f7e4fbd233, type: 3}
+  - {fileID: 3441825290385638196, guid: 199a236113f82af448482d8d501ccfc0, type: 3}
 --- !u!1001 &2101439553
 PrefabInstance:
   m_ObjectHideFlags: 0
