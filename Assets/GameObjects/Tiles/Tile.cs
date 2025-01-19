@@ -17,7 +17,7 @@ public class Tile : MonoBehaviour
     [Header("It is a point of interrest if it contains something (loot / monster)")]
     [SerializeField] public bool _isPOI;
 
-    [NonSerialized] public bool[] _directions = new bool[6];
+    public bool[] _directions = new bool[6];
     
 
     private void Start()
@@ -106,6 +106,10 @@ public class Tile : MonoBehaviour
             }
         }
 
+        print("foun a total of"+ found.Count);
+        foreach (Collider col in hit)
+            print(col.name);
+
         Tile[] orderedFound = new Tile[6];
         
         foreach(Transform target in found)
@@ -140,6 +144,7 @@ public class Tile : MonoBehaviour
             if (Mathf.Approximately(transform.position.z, target.position.z) && transform.position.x > target.position.x)
             {
                 orderedFound[3] = target.GetComponent<Tile>();
+                print("theorie2??");
                 break;
             }
         }

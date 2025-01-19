@@ -60,7 +60,12 @@ public class Event : MonoBehaviour
         if(Chest != null)
             Chest.OpenChest();
 
-        player.AddAttackPower(Enemy.powerReward);
+        if(Enemy != null)
+        {
+            player.AddAttackPower(Enemy.powerReward);
+        }
+
+        if(tiles == null) return;
 
         for (int i = 0; i < tiles.Count; i++)
         {
