@@ -9,20 +9,14 @@ using UnityEngine.SceneManagement;
 public class Event : MonoBehaviour
 {
     public Enemy Enemy;
-
-    public Chest chest;
-
+    public Chest Chest;
     public List<GameObject> tiles;
-
-
     [SerializeField] TextMeshProUGUI txtComp;
-
-
-    TileInventory inventory;
+    TileInventory Inventory;
 
     private void Start()
     {
-        inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
+        Inventory = GameObject.Find("Inventory").GetComponent<TileInventory>();
         if (txtComp != null)
             txtComp.text = Enemy.attackPower.ToString();
     }
@@ -57,14 +51,14 @@ public class Event : MonoBehaviour
             }
         }
 
-        if(chest != null)
-            chest.OpenChest();
+        if(Chest != null)
+            Chest.OpenChest();
 
-        player.AddAttackPower(Enemy.amount);
+        player.AddAttackPower(Enemy.powerReward);
 
         for (int i = 0; i < tiles.Count; i++)
         {
-            inventory.AddTile(tiles[i]);
+            Inventory.AddTile(tiles[i]);
         }
     }
 }

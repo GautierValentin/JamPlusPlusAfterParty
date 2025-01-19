@@ -402,18 +402,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b06cd45178510774f9edb310bc850c70, type: 3}
---- !u!114 &232614016 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7131801374963016505, guid: b06cd45178510774f9edb310bc850c70,
-    type: 3}
-  m_PrefabInstance: {fileID: 232614015}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c21960c2a2dff4fb4f4937ea5b0c01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &323440788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1016686297178933945, guid: eb3c9040eeb39974eb8851f7e4fbd233,
@@ -985,7 +973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 1971596021}
-  chest: {fileID: 0}
+  Chest: {fileID: 0}
   tiles:
   - {fileID: 3441825290385638196, guid: 70a3809a708714248a18c9b5d9c87f18, type: 3}
   txtComp: {fileID: 0}
@@ -1008,7 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
-  chest: {fileID: 232614016}
+  Chest: {fileID: 0}
   tiles:
   - {fileID: 3441825290385638196, guid: d1ad27ebc090f1f4d8329769ebcb73be, type: 3}
   - {fileID: 3441825290385638196, guid: d1ad27ebc090f1f4d8329769ebcb73be, type: 3}
@@ -1471,7 +1459,7 @@ PrefabInstance:
     - target: {fileID: 6538855165723933224, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
         type: 3}
       propertyPath: m_text
-      value: '0
+      value: '#
 
 '
       objectReference: {fileID: 0}
@@ -1494,6 +1482,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4291681024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725622520611468911, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
+        type: 3}
+      propertyPath: txtComp
+      value: 
+      objectReference: {fileID: 1605391138}
+    - target: {fileID: 6725622520611468911, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
+        type: 3}
+      propertyPath: attackPower
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6725622520611468911, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
         type: 3}
@@ -1708,6 +1706,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bc3ad3335c4a4f4eadadf3ca5b1dcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1605391138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6538855165723933224, guid: 5ab6de3c98463dd4aa308d8c3ada29d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1412227611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1626905700
@@ -2400,8 +2410,8 @@ SceneRoots:
   - {fileID: 1868772257}
   - {fileID: 13821227}
   - {fileID: 873661569}
-  - {fileID: 1412227611}
   - {fileID: 1462319337}
+  - {fileID: 1412227611}
   - {fileID: 1971596020}
   - {fileID: 232614015}
   - {fileID: 157578731}
