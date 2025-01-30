@@ -41,7 +41,7 @@ public class TileHandler : MonoBehaviour
 
     public void RotateClockwise()
     {
-        audioScript.PlayClip(SFXClips.TILEACTION);
+        audioScript.PlaySFXClip(SFXClips.TILEACTION);
 
         // Rotate clockwise (if 6 -> 0)
         rotationOffset++;
@@ -54,7 +54,7 @@ public class TileHandler : MonoBehaviour
 
     public void RotateCounterClockwise()
     {
-        audioScript.PlayClip(SFXClips.TILEACTION);
+        audioScript.PlaySFXClip(SFXClips.TILEACTION);
 
         // Rotate counter clockwise (if -1 -> 5)
         rotationOffset--;
@@ -70,7 +70,7 @@ public class TileHandler : MonoBehaviour
         pickable = false;
         selected = false;
 
-        audioScript.PlayClip(SFXClips.TILESET);
+        audioScript.PlaySFXClip(SFXClips.TILESET);
 
         Transform model = transform.GetChild(0);
 

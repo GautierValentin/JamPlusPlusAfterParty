@@ -33,11 +33,11 @@ public class LevelSelectionMenu : MonoBehaviour
     }
     public void PlayClickSound()
     {
-        AudioScript.PlayClip(SFXClips.BUTTONCLICK);
+        AudioScript.PlaySFXClip(SFXClips.BUTTONCLICK);
     }
 
     public void PlayHoverSound()
     {
-        AudioScript.PlayClip(SFXClips.BUTTONHOVER);
+        AudioScript.PlaySFXClip(SFXClips.BUTTONHOVER);
     }
 }

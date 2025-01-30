@@ -154,7 +154,7 @@ public class TileInventory : MonoBehaviour
 
                     if(gridCoord != lastGridPos)
                     {
-                        audioScript.PlayClip(SFXClips.TILEACTION);
+                        audioScript.PlaySFXClip(SFXClips.TILEACTION);
                     }
 
                     lastGridPos = gridCoord;

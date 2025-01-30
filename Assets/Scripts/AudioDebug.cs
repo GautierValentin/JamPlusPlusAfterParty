@@ -16,47 +16,47 @@ public class AudioDebug : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            audioScript.PlayClip(SFXClips.ATTACK);
+            audioScript.PlaySFXClip(SFXClips.ATTACK);
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            audioScript.PlayClip(SFXClips.BUTTONCLICK);
+            audioScript.PlaySFXClip(SFXClips.BUTTONCLICK);
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            audioScript.PlayClip(SFXClips.BUTTONHOVER);
+            audioScript.PlaySFXClip(SFXClips.BUTTONHOVER);
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            audioScript.PlayClip(SFXClips.DEATH);
+            audioScript.PlaySFXClip(SFXClips.DEATH);
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            audioScript.PlayClip(SFXClips.LOOT);
+            audioScript.PlaySFXClip(SFXClips.LOOT);
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            audioScript.PlayClip(SFXClips.TILEACTION);
+            audioScript.PlaySFXClip(SFXClips.TILEACTION);
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            audioScript.PlayClip(SFXClips.TILESELECT);
+            audioScript.PlaySFXClip(SFXClips.TILESELECT);
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            audioScript.PlayClip(SFXClips.TILESET);
+            audioScript.PlaySFXClip(SFXClips.TILESET);
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            audioScript.PlayClip(SFXClips.VICTORY);
+            audioScript.PlaySFXClip(SFXClips.VICTORY);
         }
     }
 }

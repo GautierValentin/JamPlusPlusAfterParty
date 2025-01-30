@@ -36,7 +36,7 @@ public class Event : MonoBehaviour
         
         if (Enemy != null)
         {
-            AudioScript.PlayClip(SFXClips.ATTACK);
+            AudioScript.PlaySFXClip(SFXClips.ATTACK);
 
             int attackpower = player.attackPower;
 
@@ -66,7 +66,7 @@ public class Event : MonoBehaviour
             if (Enemy.isEnemyTheBoss)
             {
                 LevelLoader.LoadNextLevel();
-                AudioScript.PlayClip(SFXClips.VICTORY);
+                AudioScript.PlaySFXClip(SFXClips.VICTORY);
                 return;
             }
         }
@@ -80,13 +80,13 @@ public class Event : MonoBehaviour
         {
             if(Chest != null)
             {
-                AudioScript.PlayClip(SFXClips.LOOT);
+                AudioScript.PlaySFXClip(SFXClips.LOOT);
                 Chest.OpenChest();
             }
 
             if (Enemy != null)
             {
-                AudioScript.PlayClip(SFXClips.LOOT);
+                AudioScript.PlaySFXClip(SFXClips.LOOT);
                 player.AddAttackPower(Enemy.powerReward);
                 
             }
