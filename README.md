@@ -6,13 +6,10 @@ Things to polish before release
 - Ensure every SFXs are played on the correct channel
 
 # Visuals
-- Place some assets to show the limits of the player view (should be visible a bit before the camera isn't allowed to move further)
 - Fix some ennemy in-world canvas in levels. Possibly fix it forever, dummy
-- Make an interesting background for the Level Slection screen
 - Make some thumbnails for the level buttons
 - Make the boss defeat more gratifying
 - Set levels in different times of days (directionnal light & water shader)
-- Add some passing birds
 
 # Gameplay
 - Make it so the hero goes to multiple points of interest when multiple become available at the same time
