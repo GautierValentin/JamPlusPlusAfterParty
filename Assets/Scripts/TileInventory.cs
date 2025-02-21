@@ -62,7 +62,7 @@ public class TileInventory : MonoBehaviour
         {
             TileHandler baseTile = grid.transform.GetChild(0).transform.GetChild(i).gameObject.GetComponent<TileHandler>();
 
-            baseTile.Place();
+            baseTile.Place(false);
         }
 
         audioScript = GameObject.Find("Main Camera").GetComponent<AudioScript>();

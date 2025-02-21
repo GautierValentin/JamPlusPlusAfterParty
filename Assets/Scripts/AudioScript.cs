@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum SFXClips
 {
-    ATTACK = 0,
+    ATTACK = 1,
     BUTTONCLICK,
     BUTTONHOVER,
     DEATH,

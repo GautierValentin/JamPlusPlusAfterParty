@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4061558213626085080}
   - component: {fileID: 6062016699780475835}
+  - component: {fileID: 671698618821576804}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -57,6 +58,28 @@ MonoBehaviour:
   powerText: {fileID: 7984447064407532174}
   powerRewardText: {fileID: 0}
   tileRewardText: {fileID: 0}
+--- !u!95 &671698618821576804
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7288818055220694347}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4616502060111415606
 PrefabInstance:
   m_ObjectHideFlags: 0

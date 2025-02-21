@@ -65,12 +65,13 @@ public class TileHandler : MonoBehaviour
         tileScript.RotateLeft();
     }
 
-    public void Place()
+    public void Place(bool playSound = true)
     {
         pickable = false;
         selected = false;
 
-        audioScript.PlayClip(SFXClips.TILESET);
+        if(playSound)
+            audioScript.PlayClip(SFXClips.TILESET);
 
         Transform model = transform.GetChild(0);
 

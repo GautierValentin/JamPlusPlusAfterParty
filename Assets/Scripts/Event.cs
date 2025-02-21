@@ -36,7 +36,7 @@ public class Event : MonoBehaviour
         
         if (Enemy != null)
         {
-            AudioScript.PlayClip(SFXClips.ATTACK);
+            //AudioScript.PlayClip(SFXClips.ATTACK);
 
             int attackpower = player.attackPower;
 
@@ -86,7 +86,7 @@ public class Event : MonoBehaviour
 
             if (Enemy != null)
             {
-                AudioScript.PlayClip(SFXClips.LOOT);
+                AudioScript.PlayClip(SFXClips.ATTACK);
                 player.AddAttackPower(Enemy.powerReward);
                 
             }
