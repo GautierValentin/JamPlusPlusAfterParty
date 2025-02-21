@@ -3,7 +3,6 @@ Things to polish before release
 
 # Audio
 - Fix every SFXs to play at approriate time (looks good but need to be veryfied when the boss works)
-- shorten place tile fx 
 
 # Visuals
 - Fix some ennemy in-world canvas in levels. Possibly fix it forever, dummy
@@ -12,9 +11,8 @@ Things to polish before release
 - Set levels in different times of days (directionnal light & water shader)
 
 # Gameplay
-- Make it so the hero goes to multiple points of interest when multiple become available at the same time
-- Place camera at a custom psoition on level load
-- Allow the opening of settings while playing
+- Make it so the hero goes to multiple points of interest when multiple become available at the same time (optional)
+- Allow the opening of settings while playing (& show controls)
 - Make a Game Over screen with some buttons
 - Make a Victory screen with a reward
 

@@ -7946,6 +7946,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396846224}
   m_Mesh: {fileID: 4711208715938537054, guid: eeb9ef7fa6e646841b53256c488160b6, type: 3}
+--- !u!1 &1399885296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399885297}
+  - component: {fileID: 1399885298}
+  m_Layer: 0
+  m_Name: CamSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1399885297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399885296}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5461907, y: 0.00049051055, z: -0.00033803767, w: -0.8376607}
+  m_LocalPosition: {x: 2.7298706, y: 9.635746, z: -4.2721806}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1399885298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399885296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41747fa49229784c806dd22f7791818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1421851461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11686,3 +11730,4 @@ SceneRoots:
   - {fileID: 1705404171}
   - {fileID: 752629903}
   - {fileID: 910016070}
+  - {fileID: 1399885297}

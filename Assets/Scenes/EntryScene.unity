@@ -625,12 +625,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 568f12b59eb2b594abe30d0d22dddb6c, type: 3}
+      objectReference: {fileID: 8300000, guid: 0804c4a65171b1d46860cdabead9a025, type: 3}
     - target: {fileID: 7473326943751982717, guid: 5960e92ec7c3e394c85e492af4825907,
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 568f12b59eb2b594abe30d0d22dddb6c, type: 3}
+      objectReference: {fileID: 8300000, guid: 0804c4a65171b1d46860cdabead9a025, type: 3}
     - target: {fileID: 7831080097240795388, guid: 5960e92ec7c3e394c85e492af4825907,
         type: 3}
       propertyPath: m_Name

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,7 +20,7 @@ public class CameraController : MonoBehaviour
     const float maxZ = 15.0f;
     const float minZ = -15.0f;
 
-    Vector3 targetPosition;
+    [NonSerialized] public Vector3 targetPosition;
 
     const float zoomStrenght = 2.0f;
 
@@ -32,7 +33,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButton(2) || Input.GetMouseButton(1))
         {
             Vector3 inputToCamera = new Vector3(Input.mousePositionDelta.x, 0, Input.mousePositionDelta.y);
 
