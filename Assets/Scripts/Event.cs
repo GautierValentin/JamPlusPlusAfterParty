@@ -46,15 +46,6 @@ public class Event : MonoBehaviour
                attackpower *= 2;
             }
 
-            if (Enemy.attackPower > attackpower)
-            {
-                player.GetComponent<Animator>().SetBool("IsDead", true);
-                gameover = true;
-            }
-            else
-            {
-                Enemy.GetComponent<Animator>().SetBool("IsDead", true);
-            }
 
             Enemy.transform.rotation = Quaternion.Euler(0, player.transform.rotation.eulerAngles.y + 180, 0);
             Enemy.powerCanvas.localRotation = Quaternion.Euler(90, -Enemy.transform.rotation.eulerAngles.y, 0);
@@ -63,11 +54,21 @@ public class Event : MonoBehaviour
             Enemy.GetComponent<Animator>().SetTrigger("Battle");
             player.GetComponent<Animator>().SetTrigger("Battle");
 
-            if (Enemy.isEnemyTheBoss)
+            if (Enemy.attackPower > attackpower)
             {
-                LevelLoader.LoadNextLevel();
-                AudioScript.PlayClip(SFXClips.VICTORY);
-                return;
+                player.GetComponent<Animator>().SetBool("IsDead", true);
+                gameover = true;
+            }
+            else
+            {
+                Enemy.GetComponent<Animator>().SetBool("IsDead", true);
+
+                if (Enemy.isEnemyTheBoss)
+                {
+                    LevelLoader.LoadNextLevel();
+                    AudioScript.PlayClip(SFXClips.VICTORY);
+                    return;
+                }
             }
         }
 

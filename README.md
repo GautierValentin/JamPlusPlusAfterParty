@@ -11,7 +11,6 @@ Things to polish before release
 - Set levels in different times of days (directionnal light & water shader)
 
 # Gameplay
-- Make it so the hero goes to multiple points of interest when multiple become available at the same time (optional)
 - Allow the opening of settings while playing (& show controls)
 - Make a Game Over screen with some buttons
 - Make a Victory screen with a reward

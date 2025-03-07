@@ -211,14 +211,30 @@ public class Tile : MonoBehaviour
 
                 if (_isPOI)
                 {
-                    manager._mostAccuratePath = new();
+                    //if (manager._needQueuing)
+                    //{
+                        manager._queue.Add(() =>
+                        {
+                            manager._mostAccuratePath = new();
+                            List<Transform> arg = new();
+                            arg.Add(transform);
+                            PathFind(arg);
+                            manager._queue.RemoveAt(manager._queue.Count - 1);
+                            GameObject.Find("Player").GetComponent<MoveToIsle>().GetPath();
+                        });
+                    //}
+                    //else
+                    //{
+                    //    manager._mostAccuratePath = new();
+                    //    manager._needQueuing = true;
+                    //    manager._queue = new();
 
-                    Debug.Log("Hey there's an accessible point of interest");
+                    //    Debug.Log("Hey there's an accessible point of interest");
 
-                    List<Transform> arg = new();
-                    arg.Add(transform);
-                    PathFind(arg);
-                    
+                    //    List<Transform> arg = new();
+                    //    arg.Add(transform);
+                    //    PathFind(arg);
+                    //}
                 }
                 break;
             }

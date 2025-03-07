@@ -183,6 +183,12 @@ public class TileInventory : MonoBehaviour
 
                         tileSelected = null;
                         isTileSelected = false;
+
+                        var manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+                        if (manager._queue.Count > 0)
+                        {
+                            manager._queue[manager._queue.Count - 1]();
+                        }
                     }
                 }
 

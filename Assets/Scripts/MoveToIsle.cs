@@ -11,12 +11,13 @@ public class MoveToIsle : MonoBehaviour
 
     [NonSerialized] public bool InMove;
 
-    Action eventCaller;
+    Func<bool> eventCaller;
 
 
     public void GetPath()
     {
-        List<Transform> Path = GameObject.Find("GameManager").GetComponent<GameManager>()._mostAccuratePath;
+        GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        List<Transform> Path = manager._mostAccuratePath;
 
         if(Path == null)
         {
@@ -28,12 +29,22 @@ public class MoveToIsle : MonoBehaviour
             tilesPosition.Add(Path[i]);
         }
 
-        GameObject.Find("GameManager").GetComponent<GameManager>()._playerPosition = Path[0];
+        manager._playerPosition = Path[0];
 
         eventCaller = () =>
         {
             Path[0].GetComponent<Tile>()._isPOI = false;
             Path[0].GetComponent<Event>().IslandEvent(GetComponent<Player>());
+            if(manager._queue.Count > 0)
+            {
+                manager._queue[manager._queue.Count - 1]();
+                return true;
+            }
+            else
+            {
+                manager._needQueuing = false;
+                return false;
+            }
         };
 
         GetComponent<Animator>().SetBool("IsMoving", true);
@@ -54,10 +65,12 @@ public class MoveToIsle : MonoBehaviour
 
                 if (tilesPosition.Count == 0)
                 {
-                    eventCaller();
-                    eventCaller = null;
-                    InMove = false;
-                    GetComponent<Animator>().SetBool("IsMoving", false);
+                    if (false == eventCaller())
+                    {
+                        eventCaller = null;
+                        InMove = false;
+                        GetComponent<Animator>().SetBool("IsMoving", false);
+                    }
                     return;
                 }
                 else
