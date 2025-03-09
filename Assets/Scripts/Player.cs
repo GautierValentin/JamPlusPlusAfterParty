@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,6 +12,8 @@ public class Player : Character
 
     [SerializeField] List<UnityEvent> chestEvents;
     int chestLvl = 0;
+
+    [NonSerialized] public bool _isDead = false;
 
     public override void Start()
     {
@@ -31,5 +34,18 @@ public class Player : Character
         if(chestLvl < chestEvents.Count)
             chestEvents[chestLvl].Invoke();
         chestLvl++;
+    }
+
+    public void CheckForGameOver()
+    {
+        if (_isDead)
+        {
+            GameObject.Find("Main Camera").GetComponent<AudioScript>().PlayClip(SFXClips.LOOT);
+        }
+    }
+
+    public void TriggerGameOver()
+    {
+        GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadSpecificScene("MainMenu");
     }
 }

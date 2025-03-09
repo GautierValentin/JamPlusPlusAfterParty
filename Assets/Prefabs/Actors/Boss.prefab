@@ -69,7 +69,7 @@ Animator:
   m_GameObject: {fileID: 7288818055220694347}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c435b7b62cc4c5948972fcb28c06e476, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -233,10 +233,45 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2616992863464664882, guid: 189920b39180eb449810cc7973f9fad6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065887461545124435, guid: 189920b39180eb449810cc7973f9fad6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.61562645
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448925973664584581, guid: 189920b39180eb449810cc7973f9fad6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6069385
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456386215814930557, guid: 189920b39180eb449810cc7973f9fad6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.8954998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456386215814930557, guid: 189920b39180eb449810cc7973f9fad6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.816721
+      objectReference: {fileID: 0}
     - target: {fileID: 8532129232980601832, guid: 189920b39180eb449810cc7973f9fad6,
         type: 3}
       propertyPath: m_Name
       value: BossPawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8735087210108676188, guid: 189920b39180eb449810cc7973f9fad6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.083275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8735087210108676188, guid: 189920b39180eb449810cc7973f9fad6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.816721
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
