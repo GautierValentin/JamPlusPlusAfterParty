@@ -57,8 +57,8 @@ MonoBehaviour:
   isEnemyTheBoss: 0
   rewardCanvas: {fileID: 680531447614017685}
   powerText: {fileID: 7984447064407532174}
-  powerRewardText: {fileID: 0}
-  tileRewardText: {fileID: 0}
+  powerRewardText: {fileID: 8896423192193379393}
+  tileRewardText: {fileID: 6907233700018424781}
 --- !u!95 &671698618821576804
 Animator:
   serializedVersion: 7
@@ -155,6 +155,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 154680173016453291}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6907233700018424781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6773102368541481830, guid: 89df4897d591fb84cb1cf14c7373e983,
+    type: 3}
+  m_PrefabInstance: {fileID: 154680173016453291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8896423192193379393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8742605140991327466, guid: 89df4897d591fb84cb1cf14c7373e983,
+    type: 3}
+  m_PrefabInstance: {fileID: 154680173016453291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4616502060111415606
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public enum SFXClips
 {
+    NOT_SFX__MUSIC = 0,
+
     ATTACK = 1,
     BUTTONCLICK,
     BUTTONHOVER,

@@ -75,6 +75,7 @@ public class TileInventory : MonoBehaviour
         transform.eulerAngles = mainCameraTransform.rotation.eulerAngles + new Vector3(-90, 0, 0);
 
         // Debug //
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             AddTile(tile1);
@@ -104,9 +105,10 @@ public class TileInventory : MonoBehaviour
         {
             RemoveTile(0);
         }
+#endif
         // Debug End //
 
-        if(canSelect && false == GameObject.Find("Player").GetComponent<MoveToIsle>().InMove)
+        if (canSelect && false == GameObject.Find("Player").GetComponent<MoveToIsle>().InMove)
         {
             if (!isTileSelected)
             {
@@ -126,8 +128,6 @@ public class TileInventory : MonoBehaviour
 
                             if (hitTile.collider.gameObject.GetComponent<TileHandler>().pickable)
                             {
-                                //audioScript.PlayClip(SFXClips.TILESELECT);
-
                                 isTileSelected = true;
                                 hitTile.collider.gameObject.GetComponent<TileHandler>().selected = true;
                                 tileSelected = hitTile.collider.gameObject;

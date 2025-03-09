@@ -1,11 +1,7 @@
 Things to polish before release
 ===============================
 
-# Audio
-- Fix every SFXs to play at approriate time (looks good but need to be veryfied when the boss works)
-
 # Visuals
-- Fix some ennemy in-world canvas in levels. Possibly fix it forever, dummy
 - Make some thumbnails for the level buttons
 - Make the boss defeat more gratifying (it has no animation atm)
 - Set levels in different times of days (directionnal light & water shader)
@@ -16,7 +12,7 @@ Things to polish before release
 - Make a Victory screen with a reward
 
 # Reward
-- Think of a reward lol
+- Ticket for Cardashev's playtest
 
 ---
 
