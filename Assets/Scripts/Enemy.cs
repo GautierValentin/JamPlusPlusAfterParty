@@ -48,5 +48,15 @@ public class Enemy : Character
     public void CommitSuicide()
     {
         Destroy(gameObject);
+        if (isEnemyTheBoss)
+        {
+            GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadNextLevel();
+            GameObject.Find("Main Camera").GetComponent<AudioScript>().PlayClip(SFXClips.VICTORY);
+        }
+    }
+
+    public void PlaySkeletonDeathSFX()
+    {
+        GameObject.Find("Main Camera").GetComponent<AudioScript>().PlayClip(SFXClips.BOSSDEATH);
     }
 }

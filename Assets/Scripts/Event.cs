@@ -31,9 +31,7 @@ public class Event : MonoBehaviour
     }
 
     public void IslandEvent(Player player)
-    {
-        bool gameover = false;
-        
+    {        
         if (Enemy != null)
         {
             //AudioScript.PlayClip(SFXClips.ATTACK);
@@ -57,47 +55,33 @@ public class Event : MonoBehaviour
             if (Enemy.attackPower > attackpower)
             {
                 player.GetComponent<Animator>().SetBool("IsDead", true);
-                gameover = true;
+                player.GetComponent<Player>()._isDead = true;
             }
             else
             {
                 Enemy.GetComponent<Animator>().SetBool("IsDead", true);
-
-                if (Enemy.isEnemyTheBoss)
-                {
-                    LevelLoader.LoadNextLevel();
-                    AudioScript.PlayClip(SFXClips.VICTORY);
-                    return;
-                }
             }
         }
 
 
-        if (gameover)
+        if(Chest != null)
         {
-            LevelLoader.LoadSpecificScene("MainMenu");
+            AudioScript.PlayClip(SFXClips.LOOT);
+            Chest.OpenChest();
         }
-        else
-        {
-            if(Chest != null)
-            {
-                AudioScript.PlayClip(SFXClips.LOOT);
-                Chest.OpenChest();
-            }
 
-            if (Enemy != null)
-            {
-                AudioScript.PlayClip(SFXClips.ATTACK);
-                player.AddAttackPower(Enemy.powerReward);
+        if (Enemy != null)
+        {
+            AudioScript.PlayClip(SFXClips.ATTACK);
+            player.AddAttackPower(Enemy.powerReward);
                 
-            }
+        }
 
-            if (tiles == null) return;
+        if (tiles == null) return;
 
-            for (int i = 0; i < tiles.Count; i++)
-            {
-                Inventory.AddTile(tiles[i]);
-            }
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            Inventory.AddTile(tiles[i]);
         }
     }
 }

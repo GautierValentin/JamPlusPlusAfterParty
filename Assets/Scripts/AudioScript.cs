@@ -14,7 +14,8 @@ public enum SFXClips
     TILEACTION,
     TILESELECT,
     TILESET,
-    VICTORY
+    VICTORY,
+    BOSSDEATH,
 }
 
 public class AudioScript : MonoBehaviour
