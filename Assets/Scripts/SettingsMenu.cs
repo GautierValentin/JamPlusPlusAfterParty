@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -31,6 +32,12 @@ public class SettingsMenu : MonoBehaviour
     // Exit out of the menu when a click happens out of bounds
     public void CloseSettingsMenu()
     {
+        // Unpauses controllers if in gameplay (won't crash if it can't find them)
+        GameObject cam = GameObject.Find("Main Camera");
+        if (cam) cam.GetComponent<CameraController>().isPaused = false;
+        GameObject inv = GameObject.Find("Inventory");
+        if (inv) inv.GetComponent<TileInventory>().isPaused = false;
+
         LevelLoader.UnloadSpecificScene("SettingsMenu");
     }
 
