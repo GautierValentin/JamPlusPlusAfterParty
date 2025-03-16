@@ -81,16 +81,16 @@ public class TileHandler : MonoBehaviour
             model.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.On;
         }
 
-        // Multiple models
+        //// Multiple models
         else
         {
             int modelChildCount = model.transform.childCount;
             for (int i = 0; i < modelChildCount; i++)
             {
-                model.transform.GetChild(i).GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.On;     
+                model.transform.GetChild(i).GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.On;
             }
         }
 
-        inventory.SetTilePlaced(gameObject);
+        GameObject.Find("Inventory").GetComponent<TileInventory>().SetTilePlaced(gameObject);
     }
 }
