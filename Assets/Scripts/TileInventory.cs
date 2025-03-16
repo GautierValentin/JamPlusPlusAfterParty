@@ -72,6 +72,8 @@ public class TileInventory : MonoBehaviour
 
     void Update()
     {
+        if (isPaused) return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
