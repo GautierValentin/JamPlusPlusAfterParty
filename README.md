@@ -6,14 +6,11 @@ Things to polish before release
 - Make the boss defeat more gratifying (it has no animation atm)
 
 # Gameplay
-- Allow the opening of settings while playing (& show controls)
 - Make a Game Over screen with some buttons
 - Make a Victory screen with a reward
 
 # Reward
 - Ticket for Cardashev's playtest
-
----
 
 Level Board
 ===========
