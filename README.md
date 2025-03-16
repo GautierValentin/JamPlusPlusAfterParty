@@ -1,8 +1,6 @@
 Things to polish before release
 ===============================
 
-# Visuals
-- Make some thumbnails for the level buttons
 
 # Gameplay
 - Make a Game Over screen with some buttons
