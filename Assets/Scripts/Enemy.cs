@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : Character
 {
@@ -52,6 +53,21 @@ public class Enemy : Character
         {
             GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadNextLevel();
             GameObject.Find("Main Camera").GetComponent<AudioScript>().PlayClip(SFXClips.VICTORY);
+
+            Scene[] loadedScenes = SceneManager.GetAllScenes();
+            foreach (Scene curScene in loadedScenes)
+            {
+                if (curScene.name == "Level 4")
+                {
+                    // Pauses the game
+                    GameObject.Find("Main Camera").GetComponent<CameraController>().isPaused = false;
+                    GameObject.Find("Inventory").GetComponent<TileInventory>().isPaused = false;
+
+                    GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadSpecificScene("VictoryScreen", true);
+
+                    break;
+                }
+            }
         }
     }
 

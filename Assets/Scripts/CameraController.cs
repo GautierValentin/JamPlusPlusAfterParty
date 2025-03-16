@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
 
     const float zoomStrenght = 2.0f;
 
-    public bool isPaused;
+    public bool isPaused = false;
 
 
     void Start()
@@ -38,9 +38,6 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
-
-            if (isPaused) 
-                GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadSpecificScene("SettingsMenu", true);
         }
 
         if (!isPaused)

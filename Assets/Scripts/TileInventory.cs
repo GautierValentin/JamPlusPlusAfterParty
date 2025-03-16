@@ -42,7 +42,7 @@ public class TileInventory : MonoBehaviour
 
     [SerializeField] List<GameObject> _startingHand;
 
-    public bool isPaused;
+    public bool isPaused = false;
 
     void Start()
     {
@@ -72,12 +72,15 @@ public class TileInventory : MonoBehaviour
 
     void Update()
     {
-        if (isPaused) return;
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
+
+            if (isPaused)
+                GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadSpecificScene("PauseMenu", true);
         }
+
+        if (isPaused) return;
 
         Vector3 resultingPosition = mainCameraTransform.position + mainCameraTransform.forward * distanceFromMainCamera;
         transform.position = resultingPosition;

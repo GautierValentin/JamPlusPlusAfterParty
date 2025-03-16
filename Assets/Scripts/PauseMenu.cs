@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SettingsMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     ///  ----
     /// FIELDS
@@ -17,6 +17,8 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] Slider MusicVolumeSlider;
     [SerializeField] Slider SFXVolumeSlider;
 
+    [SerializeField] Button BackToMainMenu;
+
     bool isPaused = false;
 
 
@@ -26,13 +28,21 @@ public class SettingsMenu : MonoBehaviour
     private void Awake()
     {
         LevelLoader = GameObject.Find("Level Loader").GetComponent<LevelLoader>();
+
+        BackToMainMenu.onClick.AddListener(() => {
+            // Unpauses to avoid a softlock
+            GameObject.Find("Main Camera").GetComponent<CameraController>().isPaused = false;
+            GameObject.Find("Inventory").GetComponent<TileInventory>().isPaused = false;
+
+            LevelLoader.LoadSpecificScene("MainMenu");
+        });
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isPaused) CloseSettingsMenu();
+            if (!isPaused) ClosePauseMenu();
 
             isPaused = !isPaused;
         }
@@ -43,7 +53,7 @@ public class SettingsMenu : MonoBehaviour
     /// CLASS METHODS
     ///  -----------
     // Exit out of the menu when a click happens out of bounds
-    public void CloseSettingsMenu()
+    public void ClosePauseMenu()
     {
         // Unpauses controllers if in gameplay (won't crash if it can't find them)
         GameObject cam = GameObject.Find("Main Camera");
@@ -51,7 +61,7 @@ public class SettingsMenu : MonoBehaviour
         GameObject inv = GameObject.Find("Inventory");
         if (inv) inv.GetComponent<TileInventory>().isPaused = false;
 
-        LevelLoader.UnloadSpecificScene("SettingsMenu");
+        LevelLoader.UnloadSpecificScene("PauseMenu");
     }
 
     // Handles updates of the Global Volume setting

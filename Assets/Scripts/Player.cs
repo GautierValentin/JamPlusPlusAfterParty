@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,6 +15,7 @@ public class Player : Character
     int chestLvl = 0;
 
     [NonSerialized] public bool _isDead = false;
+    bool isDeathScreenOpen = false;
 
     public override void Start()
     {
@@ -46,6 +48,13 @@ public class Player : Character
 
     public void TriggerGameOver()
     {
-        GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadSpecificScene("MainMenu");
+        if (!isDeathScreenOpen)
+        {
+            GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadSpecificScene("DeathScreen", true);
+            isDeathScreenOpen = true;
+
+            GameObject.Find("Main Camera").GetComponent<CameraController>().isPaused = true;
+            GameObject.Find("Inventory").GetComponent<TileInventory>().isPaused = true;
+        }
     }
 }
