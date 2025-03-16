@@ -42,8 +42,8 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene(ARGsceneName, ARGshouldLoadAdditively ? LoadSceneMode.Additive : LoadSceneMode.Single);
 
-        // Re-positions the Camera to be front-facing
-        Camera.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        //// Re-positions the Camera to be front-facing
+        //Camera.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
     public void LoadSpecificLevel(int ARGlevelId)
     {

@@ -24,6 +24,8 @@ public class CameraController : MonoBehaviour
 
     const float zoomStrenght = 2.0f;
 
+    public bool isPaused;
+
 
     void Start()
     {
@@ -33,43 +35,54 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(2) || Input.GetMouseButton(1))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Vector3 inputToCamera = new Vector3(Input.mousePositionDelta.x, 0, Input.mousePositionDelta.y);
+            isPaused = !isPaused;
 
-            // THIS DOESN'T WORK WELL WITH OTHER INPUTS LIKE ZOOM
-            //transform.position -= inputToCamera * Time.deltaTime * mouseDragAndDropSensitivity;
-            //targetPosition = transform.position;
-
-            targetPosition -= inputToCamera * Time.deltaTime * mouseDragAndDropSensitivity;
-
-            Cursor.visible = false;
+            if (isPaused) 
+                GameObject.Find("Level Loader").GetComponent<LevelLoader>().LoadSpecificScene("SettingsMenu", true);
         }
 
-        else
-        {
-            Cursor.visible = true;
-        }
+        if (!isPaused)
+        { 
+            if (Input.GetMouseButton(2) || Input.GetMouseButton(1))
+            {
+                Vector3 inputToCamera = new Vector3(Input.mousePositionDelta.x, 0, Input.mousePositionDelta.y);
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            targetPosition += Vector3.forward * Time.deltaTime * movementSpeed;
-        }
+                // THIS DOESN'T WORK WELL WITH OTHER INPUTS LIKE ZOOM
+                //transform.position -= inputToCamera * Time.deltaTime * mouseDragAndDropSensitivity;
+                //targetPosition = transform.position;
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            targetPosition += Vector3.back * Time.deltaTime * movementSpeed;
-        }
+                targetPosition -= inputToCamera * Time.deltaTime * mouseDragAndDropSensitivity;
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            targetPosition += Vector3.right * Time.deltaTime * movementSpeed;
-        }
+                Cursor.visible = false;
+            }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            targetPosition += Vector3.left * Time.deltaTime * movementSpeed;
-        }     
+            else
+            {
+                Cursor.visible = true;
+            }
+
+            if (Input.GetKey(KeyCode.W))
+            {
+                targetPosition += Vector3.forward * Time.deltaTime * movementSpeed;
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                targetPosition += Vector3.back * Time.deltaTime * movementSpeed;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                targetPosition += Vector3.right * Time.deltaTime * movementSpeed;
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                targetPosition += Vector3.left * Time.deltaTime * movementSpeed;
+            }
+        }
 
         targetPosition += Vector3.down * Input.mouseScrollDelta.y * zoomStrenght;
 

@@ -5,14 +5,11 @@ Things to polish before release
 - Make some thumbnails for the level buttons
 
 # Gameplay
-- Allow the opening of settings while playing (& show controls)
 - Make a Game Over screen with some buttons
 - Make a Victory screen with a reward
 
 # Reward
 - Ticket for Cardashev's playtest
-
----
 
 Level Board
 ===========

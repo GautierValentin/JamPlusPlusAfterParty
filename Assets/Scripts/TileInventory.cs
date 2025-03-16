@@ -42,6 +42,8 @@ public class TileInventory : MonoBehaviour
 
     [SerializeField] List<GameObject> _startingHand;
 
+    public bool isPaused;
+
     void Start()
     {
         // Retrieves the Camera
@@ -70,6 +72,13 @@ public class TileInventory : MonoBehaviour
 
     void Update()
     {
+        if (isPaused) return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isPaused = !isPaused;
+        }
+
         Vector3 resultingPosition = mainCameraTransform.position + mainCameraTransform.forward * distanceFromMainCamera;
         transform.position = resultingPosition;
         transform.eulerAngles = mainCameraTransform.rotation.eulerAngles + new Vector3(-90, 0, 0);
